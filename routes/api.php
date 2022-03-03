@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
+
+
+Route::apiResources([
+    'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,
+    'municipalities' => \App\Http\Controllers\API\V1\MunicipalityController::class,
+    'neighborhood' => \App\Http\Controllers\API\V1\NeighborhoodsController::class,
+]);
