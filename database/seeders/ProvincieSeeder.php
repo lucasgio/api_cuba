@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Provincie;
 use Illuminate\Database\Seeder;
 
 class ProvincieSeeder extends Seeder
@@ -13,6 +14,6 @@ class ProvincieSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Provincie::factory()->count(3)->create();
     }
 }

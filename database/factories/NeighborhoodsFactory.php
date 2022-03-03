@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Municipality;
+use App\Models\Provincie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class NeighborhoodsFactory extends Factory
@@ -11,10 +13,12 @@ class NeighborhoodsFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->unique()->city(),
+            'municipalitie_id' => Municipality::factory(),
+            'provincie_id' => Provincie::factory(),
         ];
     }
 }

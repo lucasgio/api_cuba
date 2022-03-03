@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Neighborhoods;
 use Illuminate\Database\Seeder;
 
 class NeighborhoodsSeeder extends Seeder
@@ -13,6 +14,6 @@ class NeighborhoodsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Neighborhoods::factory()->count(3)->create();
     }
 }
