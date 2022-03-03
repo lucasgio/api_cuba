@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany as HasManyAlias;
 
+/**
+ * @method static paginate(int $int)
+ * @method static create(array $validated)
+ */
 class Provincie extends Model
 {
     use HasFactory;
