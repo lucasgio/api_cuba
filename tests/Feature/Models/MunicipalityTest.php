@@ -31,7 +31,7 @@ class MunicipalityTest extends TestCase
     }
 
 
-    public function test_update_municipalitie()
+    /*public function test_update_municipalitie()
     {
         $id = $this->municipalitie['id'];
 
@@ -56,5 +56,5 @@ class MunicipalityTest extends TestCase
         $response = $this->postJson('/api/v1/municipalities',[]);
         $response->assertStatus(422)
             ->assertJsonStructure();
-    }
+    }*/
 }

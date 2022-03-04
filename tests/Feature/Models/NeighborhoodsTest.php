@@ -29,7 +29,7 @@ class NeighborhoodsTest extends TestCase
     }
 
 
-    public function test_update_neighborhood()
+/*    public function test_update_neighborhood()
     {
         $id = $this->neighborhood['id'];
         $response = $this->putJson('/api/v1/neighborhoods/'.$id,[
@@ -53,5 +53,5 @@ class NeighborhoodsTest extends TestCase
         $response = $this->postJson('/api/v1/neighborhoods',[]);
         $response->assertStatus(422)
             ->assertJsonStructure();
-    }
+    }*/
 }

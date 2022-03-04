@@ -29,7 +29,7 @@ class ProvincieTest extends TestCase
       }
 
 
-      public function test_update_provincie()
+/*      public function test_update_provincie()
       {
           $id = $this->provincie['id'];
 
@@ -54,5 +54,5 @@ class ProvincieTest extends TestCase
           $response = $this->postJson('/api/v1/provincies',[]);
           $response->assertStatus(422)
                    ->assertJsonStructure();
-      }
+      }*/
 }
