@@ -10,6 +10,43 @@ use App\Traits\InfoResponse;
 use Illuminate\Http\JsonResponse;
 /*use Illuminate\Http\Request;*/
 
+/**
+ *
+ * @group Barrios o Consejos Populares
+ *
+ *  Este endpoint estara disponible en versiones posteriores
+ *
+ *  Listado de los barrios o consejos populares
+ *
+ *
+ * @apiResource  status 200 {
+ *  "data": [
+ *     {
+ *          "id": 5,
+ *          "barrio": "Belen",
+ *          "municipio": {
+ *              "id": 9,
+ *              "name": "Guanabacoa",
+ *              "provincia": {
+ *                  "id": 17,
+ *                  "name": "La Habana"
+ *              }
+ *          }
+ *     }
+ *   ],
+ *   "paginate": {
+ *      "current_page": 1,
+ *      "last_page": 1,
+ *      "per_page": 10,
+ *      "total": 1
+ *   },
+ *     "message": "1 registros listados correctamente"
+ *   }
+ *
+ *
+ */
+
+
 
 class NeighborhoodsController extends ApiController
 {
@@ -26,52 +63,31 @@ class NeighborhoodsController extends ApiController
         return $this->collectionDataResponse($neighborhood);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param NeighborhoodRequest $request
-     * @return JsonResponse
-     */
-    public function store(NeighborhoodRequest $request): JsonResponse
+
+/*    public function store(NeighborhoodRequest $request): JsonResponse
     {
         $neighborhood = Neighborhoods::create($request->validated());
         return $this->singleDataResponse($this->resourceSuccess,$neighborhood,201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Neighborhoods $neighborhoods
-     * @return JsonResponse
-     */
+
     public function show(Neighborhoods $neighborhoods): JsonResponse
     {
         $neighborhood = NeighborhoodResource::make($neighborhoods);
         return $this->singleDataResponse($this->resourceList,$neighborhood,200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param NeighborhoodRequest $request
-     * @param Neighborhoods $neighborhoods
-     * @return JsonResponse
-     */
+
     public function update(NeighborhoodRequest $request, Neighborhoods $neighborhoods): JsonResponse
     {
         $neighborhood = $neighborhoods->update($request->validated());
         return $this->singleDataResponse($this->resourceUpdate,$neighborhood,201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Neighborhoods $neighborhoods
-     * @return JsonResponse
-     */
+
     public function destroy(Neighborhoods $neighborhoods): JsonResponse
     {
         $neighborhood = $neighborhoods->delete();
         return $this->singleDataResponse($this->resourceDelete,$neighborhood,200);
-    }
+    }*/
 }

@@ -23,7 +23,7 @@ class MunicipalitiesResource extends JsonResource
 
         'id' => "mixed",
         'name' => "mixed",
-        'provincie' => "\App\Http\Resources\ProvinciesResource"
+        'provincia' => "\App\Http\Resources\ProvinciesResource"
 
     ])]
     public function toArray($request): array
@@ -31,7 +31,7 @@ class MunicipalitiesResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'provincie' => ProvinciesResource::make($this->whenLoaded('provincies')),
+            'provincia' => ProvinciesResource::make($this->provincies),
         ];
     }
 }

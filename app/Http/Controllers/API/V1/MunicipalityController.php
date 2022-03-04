@@ -10,6 +10,41 @@ use App\Traits\InfoResponse;
 use Illuminate\Http\JsonResponse;
 /*use Illuminate\Http\Request;*/
 
+/**
+ *
+ *  @group Municipios
+ *
+ *  Listado de los muncipios
+ *
+ *
+ * @apiResource  status 200 {
+ *  "data": [
+ *     {
+ *       "id": 9,
+ *       "name": "Guanabacoa",
+ *       "provincia": {
+ *          "id": 17,
+ *          "name": "La Habana"
+ *       }
+ *    }
+ *   ],
+ *   "paginate": {
+ *      "current_page": 1,
+ *      "last_page": 1,
+ *      "per_page": 10,
+ *      "total": 1
+ *   },
+ *   "message": "1 registros listados correctamente"
+ *   }
+ *
+ *
+ */
+
+
+
+
+
+
 class MunicipalityController extends ApiController
 {
     use InfoResponse;
@@ -25,52 +60,31 @@ class MunicipalityController extends ApiController
         return $this->collectionDataResponse($municipalities);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param MunicipalityRequest $request
-     * @return JsonResponse
-     */
-    public function store(MunicipalityRequest $request): JsonResponse
+
+/*    public function store(MunicipalityRequest $request): JsonResponse
     {
         $municipalities = Municipality::create($request->validated());
         return $this->singleDataResponse($this->resourceSuccess,$municipalities,201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Municipality $municipality
-     * @return JsonResponse
-     */
+
     public function show(Municipality $municipality): JsonResponse
     {
         $municipalities = MunicipalitiesResource::make($municipality);
         return $this->singleDataResponse($this->resourceList,$municipalities,200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param MunicipalityRequest $request
-     * @param Municipality $municipality
-     * @return JsonResponse
-     */
+
     public function update(MunicipalityRequest $request, Municipality $municipality): JsonResponse
     {
         $municipalities = $municipality->update($request->validated());
         return $this->singleDataResponse($this->resourceUpdate,$municipalities,201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Municipality $municipality
-     * @return JsonResponse
-     */
+
     public function destroy(Municipality $municipality): JsonResponse
     {
         $municipalities = $municipality->delete();
         return $this->singleDataResponse($this->resourceDelete,$municipalities,200);
-    }
+    }*/
 }

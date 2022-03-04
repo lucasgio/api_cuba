@@ -29,8 +29,7 @@ class NeighborhoodResource extends JsonResource
         return [
             'id' => $this->id,
             'barrio' => $this->name,
-            'municipio' => MunicipalitiesResource::make($this->whenLoaded('municipalities')),
-            'provincia' => ProvinciesResource::make($this->whenLoaded('provincies')),
+            'municipio' => MunicipalitiesResource::make($this->municipalities),
         ];
     }
 }
