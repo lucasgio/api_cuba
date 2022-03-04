@@ -23,7 +23,7 @@ class NeighborhoodsTest extends TestCase
 
     public function test_get_all_neighborhoods_successfully()
     {
-        $response = $this->getJson('/api/neighborhoods');
+        $response = $this->getJson('/api/v1/neighborhoods');
         $response->assertStatus(200)
             ->assertJsonStructure();
     }
@@ -31,7 +31,11 @@ class NeighborhoodsTest extends TestCase
 
     public function test_update_neighborhood()
     {
-        $response = $this->postJson('/api/neighborhoods',$this->neighborhood);
+        $id = $this->neighborhood['id'];
+        $response = $this->putJson('/api/v1/neighborhoods/'.$id,[
+            'id' => $id,
+            'name' => 'Belen'
+        ]);
         $response->assertStatus(201)
             ->assertJsonStructure();
     }
@@ -39,14 +43,14 @@ class NeighborhoodsTest extends TestCase
     public function test_delete_neighborhood()
     {
         $id = $this->neighborhood['id'];
-        $response = $this->deleteJson('/api/neighborhoods'.$id,['id' => $id]);
+        $response = $this->deleteJson('/api/v1/neighborhoods/'.$id,['id' => $id]);
         $response->assertStatus(200)
             ->assertJsonStructure();
     }
 
     public function test_validation_request_neighborhood()
     {
-        $response = $this->postJson('/api/neighborhoods',[]);
+        $response = $this->postJson('/api/v1/neighborhoods',[]);
         $response->assertStatus(422)
             ->assertJsonStructure();
     }

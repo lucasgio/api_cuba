@@ -22,5 +22,5 @@ use Illuminate\Support\Facades\Route;
 Route::apiResources([
     'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,
     'municipalities' => \App\Http\Controllers\API\V1\MunicipalityController::class,
-    'neighborhood' => \App\Http\Controllers\API\V1\NeighborhoodsController::class,
+    'neighborhoods' => \App\Http\Controllers\API\V1\NeighborhoodsController::class,
 ]);
