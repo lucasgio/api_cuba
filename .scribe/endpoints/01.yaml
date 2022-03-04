@@ -1,0 +1,32 @@
+name: Municipios
+description: |-
+
+   Listado de los muncipios
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/municipalities
+    metadata:
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":9,"name":"Guanabacoa","provincia":{"id":17,"name":"La Habana"}}],"paginate":{"current_page":1,"last_page":1,"per_page":10,"total":1},"message":"1 registros listados correctamente"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
