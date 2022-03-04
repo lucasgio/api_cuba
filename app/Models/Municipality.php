@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo as BelongsToAlias;
 use Illuminate\Database\Eloquent\Relations\HasMany as HasManyAlias;
 
+/**
+ * @method static paginate(int $int)
+ * @method static create(array $validated)
+ */
 class Municipality extends Model
 {
     use HasFactory;
