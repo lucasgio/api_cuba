@@ -20,7 +20,7 @@ class JsonMiddleware
         if (! $request->wantsJson()) {
             return response()->json([
                 'success'=> 'false',
-                'message' => __('Do not have authorization')
+                'message' => __('Do not have authorization'),
             ], 403);
         }
 
