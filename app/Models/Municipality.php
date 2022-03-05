@@ -15,21 +15,18 @@ class Municipality extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'name',
-        'provincie_id'
+        'provincie_id',
     ];
-
 
     public function provincies(): BelongsToAlias
     {
-        return $this->belongsTo(Provincie::class,'provincie_id');
+        return $this->belongsTo(Provincie::class, 'provincie_id');
     }
 
     public function neighborhoods(): HasManyAlias
     {
         return $this->hasMany(Neighborhoods::class);
     }
-
 }

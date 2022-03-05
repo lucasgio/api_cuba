@@ -8,7 +8,6 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class BaseRequest extends FormRequest
 {
-
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
@@ -16,5 +15,4 @@ class BaseRequest extends FormRequest
             "message" => __('Parameters are invalid'),
         ], 422));
     }
-
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class MunicipalityRequest extends BaseRequest
@@ -27,7 +26,7 @@ class MunicipalityRequest extends BaseRequest
         return match ($this->method()) {
             'POST' => [
                 'name' => 'required|string|unique:municipalities,name',
-                'provincie_id' => 'required|int|exists:provincies,id'
+                'provincie_id' => 'required|int|exists:provincies,id',
             ],
             'PUT' => [
                 'id' => 'required|int|exists:municipalities,id',
@@ -35,7 +34,7 @@ class MunicipalityRequest extends BaseRequest
                 'provincie_id' => 'nullable|int|exists:provincies,id',
             ],
             'DELETE' => [
-                'id' => 'required|int|exists:municipalities,id'
+                'id' => 'required|int|exists:municipalities,id',
             ]
         };
     }
@@ -44,14 +43,14 @@ class MunicipalityRequest extends BaseRequest
      * @return string[]
      */
     #[ArrayShape([
-        'name' => "string",
-        'provincie_id' => "string"
+        'name' => 'string',
+        'provincie_id' => 'string',
     ])]
     public function attributes(): array
     {
         return [
-          'name' => 'municipio',
-          'provincie_id' => 'provincia'
+            'name' => 'municipio',
+            'provincie_id' => 'provincia',
         ];
     }
 
@@ -59,16 +58,16 @@ class MunicipalityRequest extends BaseRequest
      * @return string[]
      */
     #[ArrayShape([
-        'required' => "string",
-        'exists' => "string",
-        'unique' => "string"
+        'required' => 'string',
+        'exists' => 'string',
+        'unique' => 'string',
     ])]
     public function messages(): array
     {
         return [
             'required' => 'El campo :attribute es obligatorio',
             'exists' => 'El campo :attribute no existe en la api',
-            'unique' => 'El campo :attribute debe ser único'
+            'unique' => 'El campo :attribute debe ser único',
         ];
     }
 }
