@@ -67,27 +67,27 @@ class NeighborhoodsController extends ApiController
 /*    public function store(NeighborhoodRequest $request): JsonResponse
     {
         $neighborhood = Neighborhoods::create($request->validated());
-        return $this->singleDataResponse($this->resourceSuccess,$neighborhood,201);
+        return $this->singleDataResponse($this->resourceSuccess(),$neighborhood,201);
     }
 
 
     public function show(Neighborhoods $neighborhoods): JsonResponse
     {
         $neighborhood = NeighborhoodResource::make($neighborhoods);
-        return $this->singleDataResponse($this->resourceList,$neighborhood,200);
+        return $this->singleDataResponse($this->resourceList(),$neighborhood,200);
     }
 
 
     public function update(NeighborhoodRequest $request, Neighborhoods $neighborhoods): JsonResponse
     {
         $neighborhood = $neighborhoods->update($request->validated());
-        return $this->singleDataResponse($this->resourceUpdate,$neighborhood,201);
+        return $this->singleDataResponse($this->resourceUpdate(),$neighborhood,201);
     }
 
 
     public function destroy(Neighborhoods $neighborhoods): JsonResponse
     {
         $neighborhood = $neighborhoods->delete();
-        return $this->singleDataResponse($this->resourceDelete,$neighborhood,200);
+        return $this->singleDataResponse($this->resourceDelete(),$neighborhood,200);
     }*/
 }

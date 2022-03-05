@@ -47,7 +47,7 @@ class Handler extends ExceptionHandler
             if (!$request instanceof $e) {
                 return response()->json([
                     'success' => 'false',
-                    'error' => 'Do not have authorization or Resource not found',
+                    'error' => __('Do not have authorization or Resource not found'),
                     'message' => strlen($e->getMessage()) === 0 && null,
                 ], $e->getStatusCode());
             }

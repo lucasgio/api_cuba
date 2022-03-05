@@ -21,7 +21,7 @@ class JsonMiddleware
         {
             return response()->json([
                 'success'=> 'false',
-                'message' => 'Do not have authorization'
+                'message' => __('Do not have authorization')
             ], 403);
         }
 
