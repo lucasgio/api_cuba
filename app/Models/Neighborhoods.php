@@ -20,15 +20,13 @@ class Neighborhoods extends Model
         'provincie_id',
     ];
 
-
     public function municipalities(): BelongsToAlias
     {
-        return $this->belongsTo(Municipality::class,'municipalitie_id');
+        return $this->belongsTo(Municipality::class, 'municipalitie_id');
     }
 
     public function provincies(): BelongsToAlias
     {
-        return $this->belongsTo(Provincie::class,'provincie_id');
+        return $this->belongsTo(Provincie::class, 'provincie_id');
     }
-
 }

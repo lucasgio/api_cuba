@@ -21,9 +21,9 @@ class MunicipalitiesResource extends JsonResource
      */
     #[ArrayShape([
 
-        'id' => "mixed",
-        'name' => "mixed",
-        'provincia' => "\App\Http\Resources\ProvinciesResource"
+        'id' => 'mixed',
+        'name' => 'mixed',
+        'provincia' => "\App\Http\Resources\ProvinciesResource",
 
     ])]
     public function toArray($request): array

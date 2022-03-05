@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class ProvincieRequest extends BaseRequest
@@ -26,11 +25,11 @@ class ProvincieRequest extends BaseRequest
     {
         return match ($this->method()) {
             'POST' => [
-                'name' => 'required|string|unique:provincies,name'
+                'name' => 'required|string|unique:provincies,name',
             ],
             'PUT' => [
                 'id' => 'required|int|exists:provincies,id',
-                'name' => 'nullable|string|unique:provincies,name'
+                'name' => 'nullable|string|unique:provincies,name',
             ],
             'DELETE' => [
                 'id' => 'required|int|exists:provincies,id',
@@ -38,30 +37,27 @@ class ProvincieRequest extends BaseRequest
         };
     }
 
-
     /**
      * @return string[]
      */
-    #[ArrayShape(['name' => "string", 'id' => "string"])]
+    #[ArrayShape(['name' => 'string', 'id' => 'string'])]
     public function attributes(): array
     {
         return [
             'name' => 'provincies',
-            'id' => 'identicador'
+            'id' => 'identicador',
         ];
     }
 
     /**
      * @return string[]
      */
-    #[ArrayShape(['required' => "string", 'unique' => "string"])]
+    #[ArrayShape(['required' => 'string', 'unique' => 'string'])]
     public function messages(): array
     {
         return [
             'required' => 'El campo :attributes obligatorio',
-            'unique' => 'El campo :attributes debe ser único'
+            'unique' => 'El campo :attributes debe ser único',
         ];
     }
-
-
 }
