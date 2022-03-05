@@ -4,12 +4,12 @@ namespace App\Traits;
 
 trait InfoResponse
 {
-    public string $error = 'Ha ocurrido un error inesperado';
-    public string $resourceSuccess = 'Se ha creado el recurso correctamente';
-    public string $resourceList = 'Se ha listado el recurso correctamente';
-    public string $resourceUpdate = 'Se ha actualizado el recurso correctamente';
-    public string $resourceDelete = 'Se ha eliminado el recurso correctamente';
-    public string $resourceError = 'No se ha podido crear el recurso';
+    public string $error = __('An unexpected error has occurred');
+    public string $resourceSuccess = __('The resource has been created correctly');
+    public string $resourceList = __('Resource has been listed correctly');
+    public string $resourceUpdate = __('The resource has been updated correctly');
+    public string $resourceDelete = __('The resource has been successfully removed');
+    public string $resourceError = __('The resource could not be created');
 
 }
 

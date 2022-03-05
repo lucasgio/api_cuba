@@ -44,7 +44,7 @@ class ApiController extends Controller
             return \Illuminate\Support\Facades\Response::json(
                 [
                     'data' => $e->getMessage(),
-                    'message' => 'Ha ocurrido un error'
+                    'message' => __('An error has occurred')
                 ],
                 $e->getStatusCode());
         }
@@ -60,7 +60,7 @@ class ApiController extends Controller
                 'per_page' => $data->perPage(),
                 'total' => $data->total(),
             ],
-            "message" => $data->total() . " registros listados correctamente",
+            "message" => __(':number records listed correctly', ['number' => $data->total()]),
         ]);
     }
 }

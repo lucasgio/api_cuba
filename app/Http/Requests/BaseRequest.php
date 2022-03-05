@@ -13,8 +13,8 @@ class BaseRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             "errors" => $validator->errors()->all(),
-            "message" => "Los parámetros no son validos",
-        ],422));
+            "message" => __('Parameters are invalid'),
+        ], 422));
     }
 
 }
