@@ -64,27 +64,27 @@ class MunicipalityController extends ApiController
 /*    public function store(MunicipalityRequest $request): JsonResponse
     {
         $municipalities = Municipality::create($request->validated());
-        return $this->singleDataResponse($this->resourceSuccess,$municipalities,201);
+        return $this->singleDataResponse($this->resourceSuccess(),$municipalities,201);
     }
 
 
     public function show(Municipality $municipality): JsonResponse
     {
         $municipalities = MunicipalitiesResource::make($municipality);
-        return $this->singleDataResponse($this->resourceList,$municipalities,200);
+        return $this->singleDataResponse($this->resourceList(),$municipalities,200);
     }
 
 
     public function update(MunicipalityRequest $request, Municipality $municipality): JsonResponse
     {
         $municipalities = $municipality->update($request->validated());
-        return $this->singleDataResponse($this->resourceUpdate,$municipalities,201);
+        return $this->singleDataResponse($this->resourceUpdate(),$municipalities,201);
     }
 
 
     public function destroy(Municipality $municipality): JsonResponse
     {
         $municipalities = $municipality->delete();
-        return $this->singleDataResponse($this->resourceDelete,$municipalities,200);
+        return $this->singleDataResponse($this->resourceDelete(),$municipalities,200);
     }*/
 }
