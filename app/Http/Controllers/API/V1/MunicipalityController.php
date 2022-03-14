@@ -81,7 +81,7 @@ class MunicipalityController extends ApiController
     public function storeMassive(Request $request, MunicipalitiesActions $municipalitiesActions): JsonResponse
     {
         $validator = Validator::make($request->all(), [
-            'provincie_id' => 'required|int',
+            'provincie_id' => 'nullable|int',
             'name' => 'required|array',
         ]);
 

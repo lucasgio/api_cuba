@@ -26,7 +26,7 @@ class MunicipalityRequest extends BaseRequest
         return match ($this->method()) {
             'POST' => [
                 'name' => 'required|string|unique:municipalities,name',
-                'provincie_id' => 'required|int|exists:provincies,id',
+                'provincie_id' => 'nullable|int|exists:provincies,id',
             ],
             'PUT' => [
                 'id' => 'required|int|exists:municipalities,id',
