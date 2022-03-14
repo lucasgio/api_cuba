@@ -18,13 +18,21 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-/**
- * API v1
- */
-Route::group(['prefix' => 'v1'], function () {
-    Route::apiResources([
-        'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,
-        'municipalities' => \App\Http\Controllers\API\V1\MunicipalityController::class,
-        'neighborhoods' => \App\Http\Controllers\API\V1\NeighborhoodsController::class,
-    ]);
-});
+/*
+* 
+* API v1
+* 
+**/
+
+
+Route::group(['prefix' => 'v1'], function () {  
+ Route::post('/post-provincies', [\App\Http\Controllers\API\V1\ProvincieController::class,'storeMassive']);
+ Route::post('/post-municipalities', [\App\Http\Controllers\API\V1\MunicipalityController::class,'storeMassive']);
+
+ Route::apiResources([
+    'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,
+    'municipalities' => \App\Http\Controllers\API\V1\MunicipalityController::class,
+    'neighborhoods' => \App\Http\Controllers\API\V1\NeighborhoodsController::class,
+ ]);
+});  
+
