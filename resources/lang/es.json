@@ -47,5 +47,16 @@
     "You are logged in!": "¡Ya iniciaste sesión!",
     "You are receiving this email because we received a password reset request for your account.": "Ha recibido este mensaje porque se solicitó un restablecimiento de contraseña para su cuenta.",
     "Your email address is not verified.": "Tu dirección de correo electrónico no está verificada.",
-    "Whoops!": "¡Vaya!"
+    "Whoops!": "¡Vaya!",
+    "Do not have authorization or Resource not found": "No tiene autorización o Recurso no encontrado",
+    "Do not have authorization": "No tiene autorización",
+    "An error has occurred": "Se ha producido un error",
+    "An unexpected error has occurred": "Se ha producido un error inesperado",
+    "The resource has been created correctly": "El recurso se ha creado correctamente",
+    "Resource has been listed correctly": "El recurso ha sido listado correctamente",
+    "The resource has been updated correctly": "El recurso se ha actualizado correctamente",
+    "The resource has been successfully removed": "El recurso ha sido eliminado con éxito",
+    "The resource could not be created": "No se ha podido crear el recurso",
+    ":number records listed correctly": ":number de registros listados correctamente",
+    "Parameters are invalid": "Los parámetros no son válidos"
 }

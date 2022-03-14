@@ -17,11 +17,10 @@ class JsonMiddleware
      */
     public function handle(Request $request, Closure $next): JsonResponse
     {
-        if (!$request->wantsJson())
-        {
+        if (! $request->wantsJson()) {
             return response()->json([
                 'success'=> 'false',
-                'message' => 'Do not have authorization'
+                'message' => __('Do not have authorization'),
             ], 403);
         }
 

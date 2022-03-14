@@ -20,12 +20,12 @@ class ProvinciesResource extends JsonResource
      * @param  Request  $request
      * @return array|Arrayable|JsonSerializable
      */
-    #[ArrayShape(['id' => "mixed", 'name' => "mixed"])]
+    #[ArrayShape(['id' => 'mixed', 'name' => 'mixed'])]
     public function toArray($request): array|JsonSerializable|Arrayable
     {
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
         ];
     }
 }

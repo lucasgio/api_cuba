@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Validator;
 /*use Illuminate\Http\Request;*/
 
 
+/*use Illuminate\Http\Request;*/
 
- /**
+/**
  *  @group  Provincias
  *
  *  Listado de las provincias
@@ -42,14 +43,9 @@ use Illuminate\Support\Facades\Validator;
  *       },
  *           "message": "1 registros listados correctamente"
  *       }
- *
  */
-
-
-
 class ProvincieController extends ApiController
 {
-
     use InfoResponse;
 
     /**
@@ -60,6 +56,7 @@ class ProvincieController extends ApiController
     public function index(): JsonResponse
     {
         $provincies = ProvinciesResource::collection(Provincie::paginate(10));
+
         return $this->collectionDataResponse($provincies);
     }
 
@@ -73,6 +70,7 @@ class ProvincieController extends ApiController
         $provincies = Provincie::create($request->validated());
         return $this->singleDataResponse($this->resourceSuccess,$provincies,201);
     }
+
 
 
     /**
@@ -100,10 +98,17 @@ class ProvincieController extends ApiController
         return $this->singleDataResponse($this->resourceUpdate,$provincies,201);
     }
 
+        public function update(ProvincieRequest $request, Provincie $provincie): JsonResponse
+        {
+            $provincies = $provincie->update($request->validated());
+            return $this->singleDataResponse($this->resourceUpdate(),$provincies,201);
+        }
 
-    public function destroy(Provincie $provincie): JsonResponse
-    {
-        $provincies = $provincie->delete();
-        return $this->singleDataResponse($this->resourceDelete,$provincies,200);
-    }*/
+
+
+        public function destroy(Provincie $provincie): JsonResponse
+        {
+            $provincies = $provincie->delete();
+            return $this->singleDataResponse($this->resourceDelete(),$provincies,200);
+        }*/
 }

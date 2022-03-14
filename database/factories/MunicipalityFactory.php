@@ -16,7 +16,7 @@ class MunicipalityFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->city(),
-            'provincie_id' => Provincie::factory()
+            'provincie_id' => Provincie::factory(),
         ];
     }
 }

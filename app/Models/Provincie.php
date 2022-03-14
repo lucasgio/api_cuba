@@ -15,10 +15,9 @@ class Provincie extends Model
 {
     use HasFactory;
 
-    protected $fillable= [
-        'name'
+    protected $fillable = [
+        'name',
     ];
-
 
     public function municipalities(): HasManyAlias
     {
@@ -29,6 +28,4 @@ class Provincie extends Model
     {
         return $this->hasMany(Neighborhoods::class);
     }
-
-
 }

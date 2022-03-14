@@ -2,11 +2,9 @@
 
 namespace Tests\Feature\Models;
 
-
 use App\Models\Municipality;
 use App\Models\Provincie;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
 use Tests\TestCase;
 
 class MunicipalityTest extends TestCase
@@ -15,7 +13,6 @@ class MunicipalityTest extends TestCase
 
     protected array $municipalitie;
     protected array $provincie;
-
 
     protected function setUp(): void
     {
@@ -31,13 +28,13 @@ class MunicipalityTest extends TestCase
         ];
     }
 
-
     public function test_get_all_municipalities_successfully()
     {
         $response = $this->getJson('/api/v1/municipalities');
         $response->assertStatus(200)
             ->assertJsonStructure();
     }
+
 
     public function test_store_massive_data()
     {

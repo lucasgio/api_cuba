@@ -12,10 +12,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
 /*use Illuminate\Http\Request;*/
 
 /**
- *
  *  @group Municipios
  *
  *  Listado de los muncipios
@@ -40,15 +40,7 @@ use Illuminate\Support\Facades\Validator;
  *   },
  *   "message": "1 registros listados correctamente"
  *   }
- *
- *
  */
-
-
-
-
-
-
 class MunicipalityController extends ApiController
 {
     use InfoResponse;
@@ -61,9 +53,15 @@ class MunicipalityController extends ApiController
     public function index(): JsonResponse
     {
         $municipalities = MunicipalitiesResource::collection(Municipality::paginate(10));
+
         return $this->collectionDataResponse($municipalities);
     }
 
+    /*    public function store(MunicipalityRequest $request): JsonResponse
+        {
+            $municipalities = Municipality::create($request->validated());
+            return $this->singleDataResponse($this->resourceSuccess(),$municipalities,201);
+        }
 
     /**
      * @param MunicipalityRequest $request
@@ -103,16 +101,23 @@ class MunicipalityController extends ApiController
     }
 
 
-    public function update(MunicipalityRequest $request, Municipality $municipality): JsonResponse
-    {
-        $municipalities = $municipality->update($request->validated());
-        return $this->singleDataResponse($this->resourceUpdate,$municipalities,201);
-    }
+        public function show(Municipality $municipality): JsonResponse
+        {
+            $municipalities = MunicipalitiesResource::make($municipality);
+            return $this->singleDataResponse($this->resourceList(),$municipalities,200);
+        }
 
 
-    public function destroy(Municipality $municipality): JsonResponse
-    {
-        $municipalities = $municipality->delete();
-        return $this->singleDataResponse($this->resourceDelete,$municipalities,200);
-    }*/
+        public function update(MunicipalityRequest $request, Municipality $municipality): JsonResponse
+        {
+            $municipalities = $municipality->update($request->validated());
+            return $this->singleDataResponse($this->resourceUpdate(),$municipalities,201);
+        }
+
+
+        public function destroy(Municipality $municipality): JsonResponse
+        {
+            $municipalities = $municipality->delete();
+            return $this->singleDataResponse($this->resourceDelete(),$municipalities,200);
+        }*/
 }
