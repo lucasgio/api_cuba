@@ -12,7 +12,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-
 /*use Illuminate\Http\Request;*/
 
 /**
@@ -70,7 +69,8 @@ class MunicipalityController extends ApiController
     public function store(MunicipalityRequest $request): JsonResponse
     {
         $municipalities = Municipality::create($request->validated());
-        return $this->singleDataResponse($this->resourceSuccess,$municipalities,201);
+
+        return $this->singleDataResponse($this->resourceSuccess, $municipalities, 201);
     }
 
     /**
@@ -80,44 +80,44 @@ class MunicipalityController extends ApiController
      */
     public function storeMassive(Request $request, MunicipalitiesActions $municipalitiesActions): JsonResponse
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'provincie_id' => 'required|int',
-            'name' => 'required|array'
+            'name' => 'required|array',
         ]);
 
-        if ($validator->fails())
-        {
-            return $this->singleDataResponse($this->error,$validator->errors()->all(),422);
+        if ($validator->fails()) {
+            return $this->singleDataResponse($this->error, $validator->errors()->all(), 422);
         }
 
         $resp = $municipalitiesActions->handler($request);
-        return $this->singleDataResponse($this->resourceSuccess,$resp,201);
+
+        return $this->singleDataResponse($this->resourceSuccess, $resp, 201);
     }
 
-/*    public function show(Municipality $municipality): JsonResponse
-    {
-        $municipalities = MunicipalitiesResource::make($municipality);
-        return $this->singleDataResponse($this->resourceList,$municipalities,200);
-    }
-
-
-        public function show(Municipality $municipality): JsonResponse
+    /*    public function show(Municipality $municipality): JsonResponse
         {
             $municipalities = MunicipalitiesResource::make($municipality);
-            return $this->singleDataResponse($this->resourceList(),$municipalities,200);
+            return $this->singleDataResponse($this->resourceList,$municipalities,200);
         }
 
 
-        public function update(MunicipalityRequest $request, Municipality $municipality): JsonResponse
-        {
-            $municipalities = $municipality->update($request->validated());
-            return $this->singleDataResponse($this->resourceUpdate(),$municipalities,201);
-        }
+            public function show(Municipality $municipality): JsonResponse
+            {
+                $municipalities = MunicipalitiesResource::make($municipality);
+                return $this->singleDataResponse($this->resourceList(),$municipalities,200);
+            }
 
 
-        public function destroy(Municipality $municipality): JsonResponse
-        {
-            $municipalities = $municipality->delete();
-            return $this->singleDataResponse($this->resourceDelete(),$municipalities,200);
-        }*/
+            public function update(MunicipalityRequest $request, Municipality $municipality): JsonResponse
+            {
+                $municipalities = $municipality->update($request->validated());
+                return $this->singleDataResponse($this->resourceUpdate(),$municipalities,201);
+            }
+
+
+            public function destroy(Municipality $municipality): JsonResponse
+            {
+                $municipalities = $municipality->delete();
+                return $this->singleDataResponse($this->resourceDelete(),$municipalities,200);
+            }*/
 }

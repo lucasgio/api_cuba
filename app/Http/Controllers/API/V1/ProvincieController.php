@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Validator;
 
 /*use Illuminate\Http\Request;*/
 
-
 /*use Illuminate\Http\Request;*/
 
 /**
@@ -60,7 +59,6 @@ class ProvincieController extends ApiController
         return $this->collectionDataResponse($provincies);
     }
 
-
     /**
      * @param ProvincieRequest $request
      * @return JsonResponse
@@ -68,10 +66,9 @@ class ProvincieController extends ApiController
     public function store(ProvincieRequest $request): JsonResponse
     {
         $provincies = Provincie::create($request->validated());
-        return $this->singleDataResponse($this->resourceSuccess,$provincies,201);
+
+        return $this->singleDataResponse($this->resourceSuccess, $provincies, 201);
     }
-
-
 
     /**
      * @param Request $request
@@ -79,36 +76,36 @@ class ProvincieController extends ApiController
      * @return JsonResponse
      * @throws Exception
      */
-    public function storeMassive(Request $request,ProvinciesActions $provinciesActions): JsonResponse
+    public function storeMassive(Request $request, ProvinciesActions $provinciesActions): JsonResponse
     {
-
         $resp = $provinciesActions->handler($request);
-        return $this->singleDataResponse($this->resourceSuccess,$resp,201);
+
+        return $this->singleDataResponse($this->resourceSuccess, $resp, 201);
     }
 
-/*    public function show(Provincie $provincie): JsonResponse
-    {
-        $provincies = ProvinciesResource::make($provincie);
-        return $this->singleDataResponse($this->resourceList,$provincies,200);
-    }
-
-    public function update(ProvincieRequest $request, Provincie $provincie): JsonResponse
-    {
-        $provincies = $provincie->update($request->validated());
-        return $this->singleDataResponse($this->resourceUpdate,$provincies,201);
-    }
+    /*    public function show(Provincie $provincie): JsonResponse
+        {
+            $provincies = ProvinciesResource::make($provincie);
+            return $this->singleDataResponse($this->resourceList,$provincies,200);
+        }
 
         public function update(ProvincieRequest $request, Provincie $provincie): JsonResponse
         {
             $provincies = $provincie->update($request->validated());
-            return $this->singleDataResponse($this->resourceUpdate(),$provincies,201);
+            return $this->singleDataResponse($this->resourceUpdate,$provincies,201);
         }
 
+            public function update(ProvincieRequest $request, Provincie $provincie): JsonResponse
+            {
+                $provincies = $provincie->update($request->validated());
+                return $this->singleDataResponse($this->resourceUpdate(),$provincies,201);
+            }
 
 
-        public function destroy(Provincie $provincie): JsonResponse
-        {
-            $provincies = $provincie->delete();
-            return $this->singleDataResponse($this->resourceDelete(),$provincies,200);
-        }*/
+
+            public function destroy(Provincie $provincie): JsonResponse
+            {
+                $provincies = $provincie->delete();
+                return $this->singleDataResponse($this->resourceDelete(),$provincies,200);
+            }*/
 }
