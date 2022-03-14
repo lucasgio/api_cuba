@@ -11,7 +11,6 @@ class ProvincieTest extends TestCase
 
     protected array $provincie;
 
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -19,11 +18,10 @@ class ProvincieTest extends TestCase
             'name' => [
                 'Pinar del Rio',
                 'La Habana',
-                'Matanzas'
-            ]
+                'Matanzas',
+            ],
         ];
     }
-
 
     public function test_get_all_provincies_successfully()
     {
@@ -36,12 +34,11 @@ class ProvincieTest extends TestCase
     {
         $response = $this->postJson('/api/v1/post-provincies', $this->provincie);
         $this->assertDatabaseHas('provincies', [
-            'name' => 'La Habana'
+            'name' => 'La Habana',
         ]);
         $response->assertStatus(201)
             ->assertJsonStructure();
     }
-
 
     /*      public function test_update_provincie()
           {
