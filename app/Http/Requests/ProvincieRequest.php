@@ -25,7 +25,7 @@ class ProvincieRequest extends BaseRequest
     {
         return match ($this->method()) {
             'POST' => [
-                'name' => 'required|unique:provincies,name'
+                'name' => 'required|unique:provincies,name',
             ],
             'PUT' => [
                 'id' => 'required|int|exists:provincies,id',
@@ -46,7 +46,7 @@ class ProvincieRequest extends BaseRequest
         return [
 
             'name' => 'provincia',
-            'id' => 'identificador'
+            'id' => 'identificador',
 
         ];
     }
@@ -60,7 +60,7 @@ class ProvincieRequest extends BaseRequest
         return [
 
             'required' => 'El campo :attribute es obligatorio',
-            'unique' => 'El campo :attribute debe ser único'
+            'unique' => 'El campo :attribute debe ser único',
 
         ];
     }

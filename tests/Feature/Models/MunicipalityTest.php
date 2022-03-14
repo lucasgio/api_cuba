@@ -12,6 +12,7 @@ class MunicipalityTest extends TestCase
     use RefreshDatabase;
 
     protected array $municipalitie;
+
     protected array $provincie;
 
     protected function setUp(): void
@@ -23,8 +24,8 @@ class MunicipalityTest extends TestCase
             'name' => [
                 'Plaza de la Revolucion',
                 'Playa',
-                'Habana Vieja'
-            ]
+                'Habana Vieja',
+            ],
         ];
     }
 
@@ -35,12 +36,11 @@ class MunicipalityTest extends TestCase
             ->assertJsonStructure();
     }
 
-
     public function test_store_massive_data()
     {
-        $response = $this->postJson('/api/v1/post-municipalities',$this->municipalitie);
-        $this->assertDatabaseHas('municipalities',[
-            'name' => 'Habana Vieja'
+        $response = $this->postJson('/api/v1/post-municipalities', $this->municipalitie);
+        $this->assertDatabaseHas('municipalities', [
+            'name' => 'Habana Vieja',
         ]);
         $response->assertStatus(201)
             ->assertJsonStructure();

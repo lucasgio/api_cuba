@@ -12,33 +12,27 @@ class ProvinciesActions extends ApiController
 {
     use InfoResponse;
 
-
-
     public function handler($request)
     {
-
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|array'
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|array',
         ]);
 
-        if ($validator->fails())
-        {
-            return $this->singleDataResponse($this->error,$validator->errors()->all(),422);
+        if ($validator->fails()) {
+            return $this->singleDataResponse($this->error, $validator->errors()->all(), 422);
         }
 
         try {
             $provincies = $request->name;
-            foreach ($provincies as $value)
-            {
+            foreach ($provincies as $value) {
                 Provincie::create([
-                    'name' => $value
+                    'name' => $value,
                 ]);
             }
             DB::commit();
-
-        }catch (\Exception $e)
-        {
+        } catch (\Exception $e) {
             DB::rollback();
+
             return $e;
         }
 

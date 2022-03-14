@@ -10,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-
 class MunicipalitiesActions extends ApiController
 {
     use InfoResponse;
@@ -21,21 +20,18 @@ class MunicipalitiesActions extends ApiController
      */
     public function handler($request): JsonResponse|Exception|bool
     {
-
         try {
             $municipality = $request->name;
-            foreach ($municipality as $value)
-            {
+            foreach ($municipality as $value) {
                 Municipality::create([
                     'provincie_id' => $request->provincie_id,
-                    'name' => $value
+                    'name' => $value,
                 ]);
             }
             DB::commit();
-
-        }catch (Exception $e)
-        {
+        } catch (Exception $e) {
             DB::rollback();
+
             return $e;
         }
 
