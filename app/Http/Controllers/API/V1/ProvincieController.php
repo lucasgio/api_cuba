@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
+
 /**
  *  @group  Provincias
  *
@@ -63,7 +64,6 @@ class ProvincieController extends ApiController
     public function store(ProvincieRequest $request): JsonResponse
     {
         $provincies = Provincie::create($request->validated());
-
         return $this->singleDataResponse($this->resourceSuccess(), $provincies, 201);
     }
 
@@ -76,8 +76,8 @@ class ProvincieController extends ApiController
     public function storeMassive(Request $request, ProvinciesActions $provinciesActions): JsonResponse
     {
         $resp = $provinciesActions->handler($request);
-
         return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
+
     }
 
     /*    public function show(Provincie $provincie): JsonResponse

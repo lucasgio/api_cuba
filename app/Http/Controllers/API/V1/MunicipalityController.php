@@ -69,7 +69,6 @@ class MunicipalityController extends ApiController
     public function store(MunicipalityRequest $request): JsonResponse
     {
         $municipalities = Municipality::create($request->validated());
-
         return $this->singleDataResponse($this->resourceSuccess(), $municipalities, 201);
     }
 
@@ -90,7 +89,6 @@ class MunicipalityController extends ApiController
         }
 
         $resp = $municipalitiesActions->handler($request);
-
         return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
     }
 
