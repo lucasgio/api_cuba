@@ -26,7 +26,7 @@ class ProvincieRequest extends BaseRequest
     {
         return match ($this->method()) {
             'POST' => [
-                'name' => 'required|string|unique:provincies,name'
+                'name' => 'required|unique:provincies,name'
             ],
             'PUT' => [
                 'id' => 'required|int|exists:provincies,id',
@@ -46,8 +46,8 @@ class ProvincieRequest extends BaseRequest
     public function attributes(): array
     {
         return [
-            'name' => 'provincies',
-            'id' => 'identicador'
+            'name' => 'provincia',
+            'id' => 'identificador'
         ];
     }
 
@@ -58,8 +58,8 @@ class ProvincieRequest extends BaseRequest
     public function messages(): array
     {
         return [
-            'required' => 'El campo :attributes obligatorio',
-            'unique' => 'El campo :attributes debe ser único'
+            'required' => 'El campo :attribute es obligatorio',
+            'unique' => 'El campo :attribute debe ser único'
         ];
     }
 

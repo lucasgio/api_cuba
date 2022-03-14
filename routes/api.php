@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
+Route::post('/post-provincies', [\App\Http\Controllers\API\V1\ProvincieController::class,'storeMassive']);
 
 Route::apiResources([
     'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,

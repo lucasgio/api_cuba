@@ -16,8 +16,13 @@ class ProvincieTest extends TestCase
       protected function setUp(): void
       {
           parent::setUp();
-
-          $this->provincie = Provincie::factory()->create()->toArray();
+          $this->provincie = [
+              'name' => [
+                  'Pinar del Rio',
+                  'La Habana',
+                  'Matanzas'
+              ]
+          ];
       }
 
 
@@ -26,6 +31,16 @@ class ProvincieTest extends TestCase
           $response = $this->getJson('/api/v1/provincies');
           $response->assertStatus(200)
                   ->assertJsonStructure();
+      }
+
+      public function test_store_massive_data()
+      {
+          $response = $this->postJson('/api/v1/post-provincies',$this->provincie);
+          $this->assertDatabaseHas('provincies',[
+              'name' => 'La Habana'
+          ]);
+          $response->assertStatus(201)
+                   ->assertJsonStructure();
       }
 
 

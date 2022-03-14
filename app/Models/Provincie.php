@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany as HasManyAlias;
 /**
  * @method static paginate(int $int)
  * @method static create(array $validated)
+ * @method static insert(array $validated)
  */
 class Provincie extends Model
 {
