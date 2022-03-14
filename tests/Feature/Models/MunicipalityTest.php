@@ -4,6 +4,7 @@ namespace Tests\Feature\Models;
 
 
 use App\Models\Municipality;
+use App\Models\Provincie;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use Tests\TestCase;
@@ -13,13 +14,21 @@ class MunicipalityTest extends TestCase
     use RefreshDatabase;
 
     protected array $municipalitie;
+    protected array $provincie;
 
 
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->municipalitie = Municipality::factory()->create()->toArray();
+        $this->provincie = Provincie::factory()->create()->toArray();
+        $this->municipalitie = [
+            'provincie_id' => $this->provincie['id'],
+            'name' => [
+                'Plaza de la Revolucion',
+                'Playa',
+                'Habana Vieja'
+            ]
+        ];
     }
 
 
@@ -30,6 +39,15 @@ class MunicipalityTest extends TestCase
             ->assertJsonStructure();
     }
 
+    public function test_store_massive_data()
+    {
+        $response = $this->postJson('/api/v1/post-municipalities',$this->municipalitie);
+        $this->assertDatabaseHas('municipalities',[
+            'name' => 'Habana Vieja'
+        ]);
+        $response->assertStatus(201)
+            ->assertJsonStructure();
+    }
 
     /*public function test_update_municipalitie()
     {

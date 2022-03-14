@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::post('/post-provincies', [\App\Http\Controllers\API\V1\ProvincieController::class,'storeMassive']);
+Route::post('/post-municipalities', [\App\Http\Controllers\API\V1\MunicipalityController::class,'storeMassive']);
 
 Route::apiResources([
     'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,
