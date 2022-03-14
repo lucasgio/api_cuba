@@ -70,7 +70,7 @@ class MunicipalityController extends ApiController
     {
         $municipalities = Municipality::create($request->validated());
 
-        return $this->singleDataResponse($this->resourceSuccess, $municipalities, 201);
+        return $this->singleDataResponse($this->resourceSuccess(), $municipalities, 201);
     }
 
     /**
@@ -86,12 +86,12 @@ class MunicipalityController extends ApiController
         ]);
 
         if ($validator->fails()) {
-            return $this->singleDataResponse($this->error, $validator->errors()->all(), 422);
+            return $this->singleDataResponse($this->error(), $validator->errors()->all(), 422);
         }
 
         $resp = $municipalitiesActions->handler($request);
 
-        return $this->singleDataResponse($this->resourceSuccess, $resp, 201);
+        return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
     }
 
     /*    public function show(Municipality $municipality): JsonResponse

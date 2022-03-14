@@ -14,10 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-/*use Illuminate\Http\Request;*/
-
-/*use Illuminate\Http\Request;*/
-
 /**
  *  @group  Provincias
  *
@@ -67,7 +63,7 @@ class ProvincieController extends ApiController
     {
         $provincies = Provincie::create($request->validated());
 
-        return $this->singleDataResponse($this->resourceSuccess, $provincies, 201);
+        return $this->singleDataResponse($this->resourceSuccess(), $provincies, 201);
     }
 
     /**
@@ -80,7 +76,7 @@ class ProvincieController extends ApiController
     {
         $resp = $provinciesActions->handler($request);
 
-        return $this->singleDataResponse($this->resourceSuccess, $resp, 201);
+        return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
     }
 
     /*    public function show(Provincie $provincie): JsonResponse
