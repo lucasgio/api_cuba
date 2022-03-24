@@ -41,5 +41,4 @@ class MunicipalityTest extends TestCase
         $response->assertStatus(201)
             ->assertJsonStructure();
     }
-
 }

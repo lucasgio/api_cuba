@@ -62,7 +62,6 @@ class NeighborhoodsController extends ApiController
         return $this->collectionDataResponse($neighborhood);
     }
 
-
     /**
      * @param NeighborhoodRequest $request
      * @return JsonResponse
@@ -73,7 +72,6 @@ class NeighborhoodsController extends ApiController
 
         return $this->singleDataResponse($this->resourceSuccess(), $neighborhood, 201);
     }
-
 
     /**
      * @param Request $request
@@ -95,7 +93,6 @@ class NeighborhoodsController extends ApiController
 
         return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
     }
-
 
     /*        public function show(Neighborhoods $neighborhoods): JsonResponse
             {

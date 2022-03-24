@@ -23,5 +23,4 @@ class Neighborhoods extends Model
     {
         return $this->belongsTo(Municipality::class, 'municipalitie_id');
     }
-
 }

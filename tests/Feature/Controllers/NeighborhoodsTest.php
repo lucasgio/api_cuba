@@ -25,5 +25,4 @@ class NeighborhoodsTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonStructure();
     }
-
 }
