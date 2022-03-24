@@ -20,7 +20,7 @@ class Municipality extends Model
         'provincie_id',
     ];
 
-    public function provincies(): BelongsToAlias
+    public function provincie(): BelongsToAlias
     {
         return $this->belongsTo(Provincie::class, 'provincie_id');
     }

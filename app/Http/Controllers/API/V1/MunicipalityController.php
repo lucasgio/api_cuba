@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\V1;
 
-use App\Actions\MunicipalitiesActions;
+use App\Actions\NeighborhoodActions;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\MunicipalityRequest;
 use App\Http\Resources\MunicipalitiesResource;
@@ -75,10 +75,10 @@ class MunicipalityController extends ApiController
 
     /**
      * @param Request $request
-     * @param MunicipalitiesActions $municipalitiesActions
+     * @param NeighborhoodActions $municipalitiesActions
      * @return JsonResponse
      */
-    public function storeMassive(Request $request, MunicipalitiesActions $municipalitiesActions): JsonResponse
+    public function storeMassive(Request $request, NeighborhoodActions $municipalitiesActions): JsonResponse
     {
         $validator = Validator::make($request->all(), [
             'provincie_id' => 'nullable|int',

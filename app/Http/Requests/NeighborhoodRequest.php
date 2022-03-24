@@ -28,13 +28,11 @@ class NeighborhoodRequest extends BaseRequest
             'POST' => [
                 'name' => 'required|string|unique:neighborhoods,name',
                 'municipalitie_id' => 'required|int|exists:municipalities,id',
-                'provincie_id' => 'required|int|exists:provincies,id',
             ],
             'PUT' => [
                 'id' => 'required|int|exists:neighborhoods,id',
                 'name' => 'nullable|string|unique:neighborhoods,name',
                 'municipalitie_id' => 'nullable|int|exists:municipalities,id',
-                'provincie_id' => 'nullable|int|exists:provincies,id',
             ],
             'DELETE' => [
                 'id' => 'required|int|exists:neighborhoods,id',
@@ -48,14 +46,12 @@ class NeighborhoodRequest extends BaseRequest
     #[ArrayShape([
         'name' => 'string',
         'municipalitie_id' => 'string',
-        'provincie_id' => 'string',
     ])]
  public function attributes(): array
  {
      return [
          'name' => 'barrio o consejo popular',
          'municipalitie_id' => 'municipio',
-         'provincie_id' => 'provincia',
      ];
  }
 

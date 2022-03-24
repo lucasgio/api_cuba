@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\NeighborhoodActions;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\NeighborhoodRequest;
 use App\Http\Resources\NeighborhoodResource;
 use App\Models\Neighborhoods;
 use App\Traits\InfoResponse;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 /*use Illuminate\Http\Request;*/
 
@@ -59,30 +62,55 @@ class NeighborhoodsController extends ApiController
         return $this->collectionDataResponse($neighborhood);
     }
 
-    /*    public function store(NeighborhoodRequest $request): JsonResponse
-        {
-            $neighborhood = Neighborhoods::create($request->validated());
-            return $this->singleDataResponse($this->resourceSuccess(),$neighborhood,201);
+    /**
+     * @param NeighborhoodRequest $request
+     * @return JsonResponse
+     */
+    public function store(NeighborhoodRequest $request): JsonResponse
+    {
+        $neighborhood = Neighborhoods::create($request->validated());
+
+        return $this->singleDataResponse($this->resourceSuccess(), $neighborhood, 201);
+    }
+
+    /**
+     * @param Request $request
+     * @param NeighborhoodActions $neighborhoodActions
+     * @return JsonResponse
+     */
+    public function storeMassive(Request $request, NeighborhoodActions $neighborhoodActions): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'municipalitie_id' => 'nullable|int',
+            'name' => 'required|array',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->singleDataResponse($this->error(), $validator->errors()->all(), 422);
         }
 
+        $resp = $neighborhoodActions->handler($request);
 
-        public function show(Neighborhoods $neighborhoods): JsonResponse
-        {
-            $neighborhood = NeighborhoodResource::make($neighborhoods);
-            return $this->singleDataResponse($this->resourceList(),$neighborhood,200);
-        }
+        return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
+    }
 
-
-        public function update(NeighborhoodRequest $request, Neighborhoods $neighborhoods): JsonResponse
-        {
-            $neighborhood = $neighborhoods->update($request->validated());
-            return $this->singleDataResponse($this->resourceUpdate(),$neighborhood,201);
-        }
+    /*        public function show(Neighborhoods $neighborhoods): JsonResponse
+            {
+                $neighborhood = NeighborhoodResource::make($neighborhoods);
+                return $this->singleDataResponse($this->resourceList(),$neighborhood,200);
+            }
 
 
-        public function destroy(Neighborhoods $neighborhoods): JsonResponse
-        {
-            $neighborhood = $neighborhoods->delete();
-            return $this->singleDataResponse($this->resourceDelete(),$neighborhood,200);
-        }*/
+            public function update(NeighborhoodRequest $request, Neighborhoods $neighborhoods): JsonResponse
+            {
+                $neighborhood = $neighborhoods->update($request->validated());
+                return $this->singleDataResponse($this->resourceUpdate(),$neighborhood,201);
+            }
+
+
+            public function destroy(Neighborhoods $neighborhoods): JsonResponse
+            {
+                $neighborhood = $neighborhoods->delete();
+                return $this->singleDataResponse($this->resourceDelete(),$neighborhood,200);
+            }*/
 }

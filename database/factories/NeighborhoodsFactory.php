@@ -18,7 +18,6 @@ class NeighborhoodsFactory extends Factory
         return [
             'name' => $this->faker->unique()->city(),
             'municipalitie_id' => Municipality::factory(),
-            'provincie_id' => Provincie::factory(),
         ];
     }
 }
