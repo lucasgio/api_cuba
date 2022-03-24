@@ -17,16 +17,11 @@ class Neighborhoods extends Model
     protected $fillable = [
         'name',
         'municipalitie_id',
-        'provincie_id',
     ];
 
-    public function municipalities(): BelongsToAlias
+    public function municipality(): BelongsToAlias
     {
         return $this->belongsTo(Municipality::class, 'municipalitie_id');
     }
 
-    public function provincies(): BelongsToAlias
-    {
-        return $this->belongsTo(Provincie::class, 'provincie_id');
-    }
 }
