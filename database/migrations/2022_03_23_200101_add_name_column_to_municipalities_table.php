@@ -12,20 +12,14 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::table('municipalities', function (Blueprint $table) {
-            $table->string('name')->after('id');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('municipalities', function (Blueprint $table) {
-            //
-        });
+        if (\Illuminate\Support\Facades\DB::getDriverName() !== 'sqlite') {
+            Schema::table('municipalities', function (Blueprint $table) {
+                $table->string('name')->after('id');
+            });
+        } else {
+            Schema::table('municipalities', function (Blueprint $table) {
+                $table->string('name')->after('id')->default('');
+            });
+        }
     }
 };
