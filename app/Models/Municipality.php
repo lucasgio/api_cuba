@@ -24,7 +24,6 @@ class Municipality extends Model
         'id' => 'string',
     ];
 
-
     public function provincie(): BelongsToAlias
     {
         return $this->belongsTo(Provincie::class, 'provincie_id');
