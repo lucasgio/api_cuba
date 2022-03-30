@@ -25,7 +25,6 @@ use Illuminate\Support\Facades\Route;
 **/
 
 Route::group(['prefix' => 'v1'], function () {
-
     Route::post('/post-provincies', [\App\Http\Controllers\API\V1\ProvincieController::class, 'storeMassive']);
     Route::post('/post-municipalities', [\App\Http\Controllers\API\V1\MunicipalityController::class, 'storeMassive']);
     Route::post('/post-neighborhoods', [\App\Http\Controllers\API\V1\NeighborhoodsController::class, 'storeMassive']);
