@@ -33,7 +33,7 @@ class NeighborhoodActions extends ApiController
         } catch (Exception $e) {
             DB::rollback();
 
-            return $e;
+            return abort(422, 'Entrada duplicada');
         }
 
         return true;
