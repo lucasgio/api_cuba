@@ -1,14 +1,41 @@
-name: Municipios
-description: |-
-
-   Listado de los muncipios
+name: Municipality
+description: ''
 endpoints:
   -
     httpMethods:
       - GET
     uri: api/v1/municipalities
     metadata:
-      title: 'Display a listing of the resource.'
+      title: 'Resource to get all municipalities'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'The page number'
+        required: false
+        example: 12
+        type: integer
+        custom: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":40,"name":"Nikkihaven","provincia":null}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/municipalities
+    metadata:
+      title: 'Resource to store single municipality'
       description: ''
       authenticated: false
       custom: []
@@ -17,16 +44,103 @@ endpoints:
       Accept: application/json
     urlParameters: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: exercitationem
+        type: string
+        custom: []
+      provincie_id:
+        name: provincie_id
+        description: ''
+        required: false
+        example: 10
+        type: integer
+        custom: []
     responses:
       -
         status: 200
-        content: '{"data":[{"id":9,"name":"Guanabacoa","provincia":{"id":17,"name":"La Habana"}}],"paginate":{"current_page":1,"last_page":1,"per_page":10,"total":1},"message":"1 registros listados correctamente"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+              {
+                   "data": {
+                       "name": "Habana Vieja",
+                       "updated_at": "2022-03-24T14:45:53.000000Z",
+                       "created_at": "2022-03-24T14:45:53.000000Z",
+                       "id": 36
+                   },
+                   "message": "El recurso se ha creado correctamente"
+              }
+           }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          {
+               {
+                  "errors": [
+                     "El campo municipio debe ser único"
+                  ],
+                  "message": "Los parámetros no son válidos"
+               }
+          }
+        headers: []
+        description: '422, Unprocessable Content'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/post-municipalities
+    metadata:
+      title: 'Resource to store a lot of municipalities'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example:
+          - sunt
+        type: 'string[]'
+        custom: []
+      provincie_id:
+        name: provincie_id
+        description: 'ID of province'
+        required: false
+        example: 12
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              {
+                "data": true,
+                "message": "El recurso se ha creado correctamente"
+              }
+           }
+        headers: []
+        description: '200'
+      -
+        status: 422
+        content: |-
+          Content
+          {
+             {
+               "message": "Entrada duplicada"
+             }
+          }
+        headers: []
+        description: '422, Unprocessable'
     responseFields: []

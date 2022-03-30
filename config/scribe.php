@@ -9,17 +9,17 @@ return [
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
-    'title' => 'API_CUBA',
+    'title' => 'API-CUBA',
 
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => 'Documentación de API_CUBA',
+    'description' => 'API-CUBA Documentation',
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => null,
+    'base_url' => '',
 
     /*
      * Tell Scribe what routes to generate documentation for.
@@ -185,7 +185,7 @@ return [
          * The base URL for the API tester to use (for example, you can set this to your staging URL).
          * Leave as null to use the current app URL (config(app.url)).
          */
-        'base_url' => null,
+        'base_url' => 'https://appcuba.herokuapp.com',
 
         /**
          * Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header. Needed if you're using Laravel Sanctum.
@@ -247,10 +247,7 @@ return [
     /*
      * Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
      */
-    'intro_text' => <<<'INTRO'
-      Esta documentación te dará información acerca de los diferentes endpoint de la API
-INTRO
-    ,
+    'intro_text' => 'Information necessary to use the resources provided by API-CUBA',
 
     /*
      * Example requests for each endpoint will be shown in each of these languages.
@@ -260,6 +257,7 @@ INTRO
      */
     'example_languages' => [
         'bash',
+        'php',
         'javascript',
         'python',
     ],

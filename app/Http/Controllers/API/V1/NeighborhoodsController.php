@@ -13,46 +13,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 /*use Illuminate\Http\Request;*/
-
 /**
- * @group Barrios o Consejos Populares
+ * @group Neighborhood
  *
- *  Este endpoint estara disponible en versiones posteriores
- *
- *  Listado de los barrios o consejos populares
- *
- *
- * @apiResource  status 200 {
- *  "data": [
- *     {
- *          "id": 5,
- *          "barrio": "Belen",
- *          "municipio": {
- *              "id": 9,
- *              "name": "Guanabacoa",
- *              "provincia": {
- *                  "id": 17,
- *                  "name": "La Habana"
- *              }
- *          }
- *     }
- *   ],
- *   "paginate": {
- *      "current_page": 1,
- *      "last_page": 1,
- *      "per_page": 10,
- *      "total": 1
- *   },
- *     "message": "1 registros listados correctamente"
- *   }
+ * Endpoint create and list neighborhood
  */
 class NeighborhoodsController extends ApiController
 {
     use InfoResponse;
 
     /**
-     * Display a listing of the resource.
+     * Resource to get all neighborhoods
      *
+     * @group Neighborhood
+     *
+     * @apiResource App\Http\Resources\NeighborhoodResource
+     * @apiResourceModel App\Models\Neighborhoods
+     *
+     *
+     * @queryParam page int The number of page.
      * @return JsonResponse
      */
     public function index(): JsonResponse
@@ -63,10 +42,39 @@ class NeighborhoodsController extends ApiController
     }
 
     /**
+     * Resource to store a single neighborhood
+     *
+     * @group Neighborhood
+     *
+     * @response status=200
+     *  {
+     *     {
+     *          "data": {
+     *              "name": "Belen",
+     *              "updated_at": "2022-03-24T14:45:53.000000Z",
+     *              "created_at": "2022-03-24T14:45:53.000000Z",
+     *              "id": 36
+     *          },
+     *          "message": "El recurso se ha creado correctamente"
+     *     }
+     *  }
+     *
+     * @response status=422 scenario="Unprocessable Content"
+     * {
+     *      {
+     *         "errors": [
+     *            "El campo barrio o consejo popular debe ser único"
+     *         ],
+     *         "message": "Los parámetros no son válidos"
+     *      }
+     * }
+     *
+     * @bodyParam name string required
+     * @bodyParam municipalitie_id int required
      * @param NeighborhoodRequest $request
      * @return JsonResponse
      */
-    public function store(NeighborhoodRequest $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         $neighborhood = Neighborhoods::create($request->validated());
 
@@ -74,6 +82,28 @@ class NeighborhoodsController extends ApiController
     }
 
     /**
+     * Resource to store a lot of municipalities
+     *
+     * @group Neighborhood
+     *
+     * @response status=200
+     *  {
+     *     {
+     *       "data": true,
+     *       "message": "El recurso se ha creado correctamente"
+     *     }
+     *  }
+     *
+     * @response status=422 scenario="Unprocessable Content"
+     * {
+     *    {
+     *      "message": "Entrada duplicada"
+     *    }
+     * }
+     *
+     * @bodyParam municipalitie_id int ID of municipalities
+     * @bodyParam name string[] required
+     *
      * @param Request $request
      * @param NeighborhoodActions $neighborhoodActions
      * @return JsonResponse
@@ -93,24 +123,4 @@ class NeighborhoodsController extends ApiController
 
         return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
     }
-
-    /*        public function show(Neighborhoods $neighborhoods): JsonResponse
-            {
-                $neighborhood = NeighborhoodResource::make($neighborhoods);
-                return $this->singleDataResponse($this->resourceList(),$neighborhood,200);
-            }
-
-
-            public function update(NeighborhoodRequest $request, Neighborhoods $neighborhoods): JsonResponse
-            {
-                $neighborhood = $neighborhoods->update($request->validated());
-                return $this->singleDataResponse($this->resourceUpdate(),$neighborhood,201);
-            }
-
-
-            public function destroy(Neighborhoods $neighborhoods): JsonResponse
-            {
-                $neighborhood = $neighborhoods->delete();
-                return $this->singleDataResponse($this->resourceDelete(),$neighborhood,200);
-            }*/
 }

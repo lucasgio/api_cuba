@@ -19,6 +19,41 @@ class SearchController extends ApiController
     use InfoResponse;
 
     /**
+     * @group Search
+     *
+     * Resource to search for the municipalities of a province
+     *
+     * @response status=200{
+     *  "data": [
+     *    {
+     *      "id": 1,
+     *      "name": "Arroyo Naranjo"
+     *    },
+     *    {
+     *      "id": 2,
+     *      "name": "Boyeros"
+     *    },
+     *    {
+     *      "id": 3,
+     *      "name": "Centro Habana"
+     *    },
+     *    {
+     *      "id": 4,
+     *      "name": "Cerro"
+     *    },
+     *
+     *   ],
+     *    "paginate": {
+     *      "current_page": 1,
+     *      "last_page": 1,
+     *      "per_page": 15,
+     *      "total": 15
+     *    },
+     *    "message": "15 de registros listados correctamente"
+     * }
+     *
+     * @queryParam filter[provincie.name] string Name of the province to search
+     * @queryParam filter[provincie_id] int ID of the province to search
      * @param Request $request
      * @return JsonResponse
      */
@@ -38,6 +73,42 @@ class SearchController extends ApiController
     }
 
     /**
+     * @group Search
+     *
+     * Resource to search for the neighborhoods of a municipality
+     * Note: This resource will be gradually implemented
+     *
+     * @response status=200{
+     *  "data": [
+     *    {
+     *      "id": 1,
+     *      "name": "Belen"
+     *    },
+     *    {
+     *      "id": 2,
+     *      "name": "Sitios"
+     *    },
+     *    {
+     *      "id": 3,
+     *      "name": "Jesus Maria"
+     *    },
+     *    {
+     *      "id": 4,
+     *      "name": "Atarei"
+     *    },
+     *
+     *   ],
+     *    "paginate": {
+     *      "current_page": 1,
+     *      "last_page": 1,
+     *      "per_page": 15,
+     *      "total": 15
+     *    },
+     *    "message": "15 de registros listados correctamente"
+     * }
+     *
+     * @queryParam filter[provincie.name] string Name of the province to search
+     * @queryParam filter[provincie_id] int ID of the province to search
      * @param Request $request
      * @return JsonResponse
      */

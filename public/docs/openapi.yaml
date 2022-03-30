@@ -1,17 +1,37 @@
 openapi: 3.0.3
 info:
-  title: API_CUBA
-  description: 'Documentación de API_CUBA'
+  title: API-CUBA
+  description: 'API-CUBA Documentation'
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'https://appcuba.herokuapp.com'
 paths:
-  /api/v1/neighborhoods:
+  /api/v1/search/municipalities-by-provinces:
     get:
-      summary: 'Display a listing of the resource.'
+      summary: 'Resource to search for the municipalities of a province'
       description: ''
       parameters:
+        -
+          in: query
+          name: 'filter[provincie.name]'
+          description: 'Name of the province to search'
+          example: in
+          required: false
+          schema:
+            type: string
+            description: 'Name of the province to search'
+            example: in
+        -
+          in: query
+          name: 'filter[provincie_id]'
+          description: 'ID of the province to search'
+          example: 12
+          required: false
+          schema:
+            type: integer
+            description: 'ID of the province to search'
+            example: 12
         -
           in: header
           name: Content-Type
@@ -28,61 +48,80 @@ paths:
             type: string
       responses:
         200:
-          description: ''
+          description: '200{'
           content:
-            application/json:
+            text/plain:
               schema:
-                type: object
-                example:
-                  data:
-                    -
-                      id: 5
-                      barrio: Belen
-                      municipio:
-                        id: 9
-                        name: Guanabacoa
-                        provincia:
-                          id: 17
-                          name: 'La Habana'
-                  paginate:
-                    current_page: 1
-                    last_page: 1
-                    per_page: 10
-                    total: 1
-                  message: '1 registros listados correctamente'
-                properties:
-                  data:
-                    type: array
-                    example:
-                      -
-                        id: 5
-                        barrio: Belen
-                        municipio:
-                          id: 9
-                          name: Guanabacoa
-                          provincia:
-                            id: 17
-                            name: 'La Habana'
-                    items:
-                      type: object
-                  paginate:
-                    type: object
-                    example:
-                      current_page: 1
-                      last_page: 1
-                      per_page: 10
-                      total: 1
-                  message:
-                    type: string
-                    example: '1 registros listados correctamente'
+                type: string
+                example: "\"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"Arroyo Naranjo\"\n   },\n   {\n     \"id\": 2,\n     \"name\": \"Boyeros\"\n   },\n   {\n     \"id\": 3,\n     \"name\": \"Centro Habana\"\n   },\n   {\n     \"id\": 4,\n     \"name\": \"Cerro\"\n   },\n\n  ],\n   \"paginate\": {\n     \"current_page\": 1,\n     \"last_page\": 1,\n     \"per_page\": 15,\n     \"total\": 15\n   },\n   \"message\": \"15 de registros listados correctamente\"\n}"
       tags:
-        - 'Barrios o Consejos Populares'
+        - Search
+      security: []
+  /api/v1/search/neighborhoods-by-municipality:
+    get:
+      summary: "Resource to search for the neighborhoods of a municipality\nNote: This resource will be gradually implemented"
+      description: ''
+      parameters:
+        -
+          in: query
+          name: 'filter[provincie.name]'
+          description: 'Name of the province to search'
+          example: qui
+          required: false
+          schema:
+            type: string
+            description: 'Name of the province to search'
+            example: qui
+        -
+          in: query
+          name: 'filter[provincie_id]'
+          description: 'ID of the province to search'
+          example: 6
+          required: false
+          schema:
+            type: integer
+            description: 'ID of the province to search'
+            example: 6
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200{'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "\"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"Belen\"\n   },\n   {\n     \"id\": 2,\n     \"name\": \"Sitios\"\n   },\n   {\n     \"id\": 3,\n     \"name\": \"Jesus Maria\"\n   },\n   {\n     \"id\": 4,\n     \"name\": \"Atarei\"\n   },\n\n  ],\n   \"paginate\": {\n     \"current_page\": 1,\n     \"last_page\": 1,\n     \"per_page\": 15,\n     \"total\": 15\n   },\n   \"message\": \"15 de registros listados correctamente\"\n}"
+      tags:
+        - Search
       security: []
   /api/v1/municipalities:
     get:
-      summary: 'Display a listing of the resource.'
+      summary: 'Resource to get all municipalities'
       description: ''
       parameters:
+        -
+          in: query
+          name: page
+          description: 'The page number'
+          example: 12
+          required: false
+          schema:
+            type: integer
+            description: 'The page number'
+            example: 12
         -
           in: header
           name: Content-Type
@@ -106,42 +145,341 @@ paths:
                 type: object
                 example:
                   data:
-                    -
-                      id: 9
-                      name: Guanabacoa
-                      provincia:
-                        id: 17
-                        name: 'La Habana'
-                  paginate:
-                    current_page: 1
-                    last_page: 1
-                    per_page: 10
-                    total: 1
-                  message: '1 registros listados correctamente'
+                    id: 40
+                    name: Nikkihaven
+                    provincia: null
                 properties:
                   data:
-                    type: array
-                    example:
-                      -
-                        id: 9
-                        name: Guanabacoa
-                        provincia:
-                          id: 17
-                          name: 'La Habana'
-                    items:
-                      type: object
-                  paginate:
                     type: object
                     example:
-                      current_page: 1
-                      last_page: 1
-                      per_page: 10
-                      total: 1
-                  message:
-                    type: string
-                    example: '1 registros listados correctamente'
+                      id: 40
+                      name: Nikkihaven
+                      provincia: null
       tags:
-        - Municipios
+        - Municipality
+      security: []
+    post:
+      summary: 'Resource to store single municipality'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n         \"data\": {\n             \"name\": \"Habana Vieja\",\n             \"updated_at\": \"2022-03-24T14:45:53.000000Z\",\n             \"created_at\": \"2022-03-24T14:45:53.000000Z\",\n             \"id\": 36\n         },\n         \"message\": \"El recurso se ha creado correctamente\"\n    }\n }"
+        422:
+          description: 'Unprocessable Content'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n     {\n        \"errors\": [\n           \"El campo municipio debe ser único\"\n        ],\n        \"message\": \"Los parámetros no son válidos\"\n     }\n}"
+      tags:
+        - Municipality
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: exercitationem
+                provincie_id:
+                  type: integer
+                  description: ''
+                  example: 10
+              required:
+                - name
+      security: []
+  /api/v1/post-municipalities:
+    post:
+      summary: 'Resource to store a lot of municipalities'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n      \"data\": true,\n      \"message\": \"El recurso se ha creado correctamente\"\n    }\n }"
+        422:
+          description: Unprocessable
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Content\n{\n   {\n     \"message\": \"Entrada duplicada\"\n   }\n}"
+      tags:
+        - Municipality
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: array
+                  description: ''
+                  example:
+                    - sunt
+                  items:
+                    type: string
+                provincie_id:
+                  type: integer
+                  description: 'ID of province'
+                  example: 12
+              required:
+                - name
+      security: []
+  /api/v1/post-neighborhoods:
+    post:
+      summary: 'Resource to store a lot of municipalities'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n      \"data\": true,\n      \"message\": \"El recurso se ha creado correctamente\"\n    }\n }"
+        422:
+          description: 'Unprocessable Content'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n   {\n     \"message\": \"Entrada duplicada\"\n   }\n}"
+      tags:
+        - Neighborhood
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                municipalitie_id:
+                  type: integer
+                  description: 'ID of municipalities'
+                  example: 17
+                name:
+                  type: array
+                  description: ''
+                  example:
+                    - maxime
+                  items:
+                    type: string
+              required:
+                - name
+      security: []
+  /api/v1/neighborhoods:
+    get:
+      summary: 'Resource to get all neighborhoods'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'The number of page.'
+          example: 5
+          required: false
+          schema:
+            type: integer
+            description: 'The number of page.'
+            example: 5
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: null
+                    name_neighborhood: Hillsland
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: null
+                      name_neighborhood: Hillsland
+      tags:
+        - Neighborhood
+      security: []
+    post:
+      summary: 'Resource to store a single neighborhood'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n         \"data\": {\n             \"name\": \"Belen\",\n             \"updated_at\": \"2022-03-24T14:45:53.000000Z\",\n             \"created_at\": \"2022-03-24T14:45:53.000000Z\",\n             \"id\": 36\n         },\n         \"message\": \"El recurso se ha creado correctamente\"\n    }\n }"
+        422:
+          description: 'Unprocessable Content'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n     {\n        \"errors\": [\n           \"El campo barrio o consejo popular debe ser único\"\n        ],\n        \"message\": \"Los parámetros no son válidos\"\n     }\n}"
+      tags:
+        - Neighborhood
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: et
+                municipalitie_id:
+                  type: integer
+                  description: ''
+                  example: 14
+              required:
+                - name
+                - municipalitie_id
+      security: []
+  /api/v1/post-provincies:
+    post:
+      summary: 'Resource to store multiples provinces'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n      \"data\": true,\n      \"message\": \"El recurso se ha creado correctamente\"\n    }\n }"
+        422:
+          description: 'Unprocessable Content'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n   {\n     \"message\": \"Entrada duplicada\"\n   }\n}"
+      tags:
+        - Province
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: array
+                  description: ''
+                  example:
+                    - nihil
+                  items:
+                    type: string
+              required:
+                - name
       security: []
   /api/v1/provincies:
     get:
@@ -149,6 +487,16 @@ paths:
       description: ''
       parameters:
         -
+          in: query
+          name: page
+          description: 'The page number.'
+          example: 0
+          required: false
+          schema:
+            type: integer
+            description: 'The page number.'
+            example: 0
+        -
           in: header
           name: Content-Type
           description: ''
@@ -172,21 +520,33 @@ paths:
                 example:
                   data:
                     -
-                      id: 17
+                      id: 4
+                      name: 'Pinar del Rio'
+                    -
+                      id: 5
                       name: 'La Habana'
+                    -
+                      id: 6
+                      name: 'Santiago de Cuba'
                   paginate:
                     current_page: 1
                     last_page: 1
                     per_page: 10
-                    total: 1
-                  message: '1 registros listados correctamente'
+                    total: 3
+                  message: '3 de registros listados correctamente'
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 17
+                        id: 4
+                        name: 'Pinar del Rio'
+                      -
+                        id: 5
                         name: 'La Habana'
+                      -
+                        id: 6
+                        name: 'Santiago de Cuba'
                     items:
                       type: object
                   paginate:
@@ -195,20 +555,72 @@ paths:
                       current_page: 1
                       last_page: 1
                       per_page: 10
-                      total: 1
+                      total: 3
                   message:
                     type: string
-                    example: '1 registros listados correctamente'
+                    example: '3 de registros listados correctamente'
       tags:
-        - Provincias
+        - Province
+      security: []
+    post:
+      summary: 'Resource to store a single province'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n         \"data\": {\n             \"name\": \"La Habana\",\n             \"updated_at\": \"2022-03-24T14:45:53.000000Z\",\n             \"created_at\": \"2022-03-24T14:45:53.000000Z\",\n             \"id\": 36\n         },\n         \"message\": \"El recurso se ha creado correctamente\"\n    }\n }"
+        422:
+          description: 'Unprocessable Content'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n     {\n        \"errors\": [\n           \"El campo provincia debe ser único\"\n        ],\n        \"message\": \"Los parámetros no son válidos\"\n     }\n }"
+      tags:
+        - Province
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: consequatur
+              required:
+                - name
       security: []
 tags:
   -
-    name: 'Barrios o Consejos Populares'
-    description: "\n Este endpoint estara disponible en versiones posteriores\n\n Listado de los barrios o consejos populares"
+    name: Search
+    description: ''
   -
-    name: Municipios
-    description: "\n Listado de los muncipios"
+    name: Municipality
+    description: ''
   -
-    name: Provincias
-    description: "\n Listado de las provincias"
+    name: Neighborhood
+    description: ''
+  -
+    name: Province
+    description: ''
