@@ -74,7 +74,7 @@ class NeighborhoodsController extends ApiController
      * @param NeighborhoodRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(NeighborhoodRequest $request): JsonResponse
     {
         $neighborhood = Neighborhoods::create($request->validated());
 
