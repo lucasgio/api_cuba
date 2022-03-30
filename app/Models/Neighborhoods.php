@@ -19,6 +19,11 @@ class Neighborhoods extends Model
         'municipalitie_id',
     ];
 
+    protected $casts = [
+        'id' => 'string',
+    ];
+
+
     public function municipality(): BelongsToAlias
     {
         return $this->belongsTo(Municipality::class, 'municipalitie_id');
