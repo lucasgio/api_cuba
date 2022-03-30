@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->unique();
             $table->foreignId('municipalitie_id')->constrained('municipalities')->cascadeOnUpdate();
-            $table->foreignId('provincie_id')->constrained('provincies')->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -19,6 +19,10 @@ class Provincie extends Model
         'name',
     ];
 
+    protected $casts = [
+        'id' => 'string',
+    ];
+
     public function municipalities(): HasManyAlias
     {
         return $this->hasMany(Municipality::class);
