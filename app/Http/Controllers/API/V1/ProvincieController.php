@@ -96,7 +96,7 @@ class ProvincieController extends ApiController
      * @param ProvincieRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(ProvincieRequest $request): JsonResponse
     {
         $provincies = Provincie::create($request->validated());
 
@@ -127,7 +127,6 @@ class ProvincieController extends ApiController
      * @param Request $request
      * @param ProvinciesActions $provinciesActions
      * @return JsonResponse
-     * @throws Exception
      */
     public function storeMassive(Request $request, ProvinciesActions $provinciesActions): JsonResponse
     {
