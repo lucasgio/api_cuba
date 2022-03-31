@@ -35,11 +35,11 @@ class MunicipalityController extends ApiController
      *
      *
      * @queryParam page int The page number
-     * @param \Illuminate\Http\Client\Request $request
+     * @param Request $request
      * @param InformationActions $informationActions
      * @return JsonResponse
      */
-    public function index(\Illuminate\Http\Client\Request $request, InformationActions $informationActions): JsonResponse
+    public function index(Request $request, InformationActions $informationActions): JsonResponse
     {
         $informationActions->handler($request);
         $municipalities = MunicipalitiesResource::collection(Municipality::paginate(10));
