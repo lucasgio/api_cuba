@@ -20,6 +20,13 @@ class User extends Authenticatable
     protected $keyType = 'string';
 
     /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
