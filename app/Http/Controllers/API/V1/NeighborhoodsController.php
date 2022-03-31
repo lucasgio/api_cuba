@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\InformationActions;
 use App\Actions\NeighborhoodActions;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\NeighborhoodRequest;
@@ -32,10 +33,13 @@ class NeighborhoodsController extends ApiController
      *
      *
      * @queryParam page int The number of page.
+     * @param Request $request
+     * @param InformationActions $informationActions
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request, InformationActions $informationActions): JsonResponse
     {
+        $informationActions->handler($request);
         $neighborhood = NeighborhoodResource::collection(Neighborhoods::paginate(10));
 
         return $this->collectionDataResponse($neighborhood);
