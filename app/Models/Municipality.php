@@ -22,13 +22,10 @@ class Municipality extends Model
      */
     protected $keyType = 'string';
 
-
     protected $fillable = [
         'name',
         'provincie_id',
     ];
-
-
 
     public function provincie(): BelongsToAlias
     {
