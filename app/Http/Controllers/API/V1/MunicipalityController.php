@@ -75,7 +75,7 @@ class MunicipalityController extends ApiController
      * @param MunicipalityRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(MunicipalityRequest $request): JsonResponse
     {
         $municipalities = Municipality::create($request->validated());
 
