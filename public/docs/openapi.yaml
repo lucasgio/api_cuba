@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'https://appcuba.herokuapp.com'
+    url: ''
 paths:
   /api/v1/search/municipalities-by-provinces:
     get:
@@ -16,22 +16,12 @@ paths:
           in: query
           name: 'filter[provincie.name]'
           description: 'Name of the province to search'
-          example: in
+          example: temporibus
           required: false
           schema:
             type: string
             description: 'Name of the province to search'
-            example: in
-        -
-          in: query
-          name: 'filter[provincie_id]'
-          description: 'ID of the province to search'
-          example: 12
-          required: false
-          schema:
-            type: integer
-            description: 'ID of the province to search'
-            example: 12
+            example: temporibus
         -
           in: header
           name: Content-Type
@@ -66,22 +56,12 @@ paths:
           in: query
           name: 'filter[provincie.name]'
           description: 'Name of the province to search'
-          example: qui
+          example: dolores
           required: false
           schema:
             type: string
             description: 'Name of the province to search'
-            example: qui
-        -
-          in: query
-          name: 'filter[provincie_id]'
-          description: 'ID of the province to search'
-          example: 6
-          required: false
-          schema:
-            type: integer
-            description: 'ID of the province to search'
-            example: 6
+            example: dolores
         -
           in: header
           name: Content-Type
@@ -116,12 +96,12 @@ paths:
           in: query
           name: page
           description: 'The page number'
-          example: 12
+          example: 2
           required: false
           schema:
             type: integer
             description: 'The page number'
-            example: 12
+            example: 2
         -
           in: header
           name: Content-Type
@@ -145,15 +125,15 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 40
-                    name: Nikkihaven
+                    id: 2
+                    name: Julietville
                     provincia: null
                 properties:
                   data:
                     type: object
                     example:
-                      id: 40
-                      name: Nikkihaven
+                      id: 2
+                      name: Julietville
                       provincia: null
       tags:
         - Municipality
@@ -203,7 +183,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: exercitationem
+                  example: sequi
                 provincie_id:
                   type: integer
                   description: ''
@@ -258,13 +238,13 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - sunt
+                    - fugiat
                   items:
                     type: string
                 provincie_id:
                   type: integer
                   description: 'ID of province'
-                  example: 12
+                  example: 8
               required:
                 - name
       security: []
@@ -319,7 +299,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - maxime
+                    - odit
                   items:
                     type: string
               required:
@@ -334,12 +314,12 @@ paths:
           in: query
           name: page
           description: 'The number of page.'
-          example: 5
+          example: 2
           required: false
           schema:
             type: integer
             description: 'The number of page.'
-            example: 5
+            example: 2
         -
           in: header
           name: Content-Type
@@ -364,13 +344,13 @@ paths:
                 example:
                   data:
                     id: null
-                    name_neighborhood: Hillsland
+                    name_neighborhood: 'South Deanna'
                 properties:
                   data:
                     type: object
                     example:
                       id: null
-                      name_neighborhood: Hillsland
+                      name_neighborhood: 'South Deanna'
       tags:
         - Neighborhood
       security: []
@@ -419,11 +399,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: et
+                  example: aut
                 municipalitie_id:
                   type: integer
                   description: ''
-                  example: 14
+                  example: 13
               required:
                 - name
                 - municipalitie_id
@@ -475,7 +455,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - nihil
+                    - laborum
                   items:
                     type: string
               required:
@@ -607,7 +587,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: occaecati
               required:
                 - name
       security: []

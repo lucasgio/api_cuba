@@ -139,7 +139,7 @@ Note: This resource will be gradually implemented</a>
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 30 2022</li>
+        <li>Last updated: March 31 2022</li>
     </ul>
 </div>
 
@@ -148,11 +148,11 @@ Note: This resource will be gradually implemented</a>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <p>API-CUBA Documentation</p>
-<pre><code>Information necessary to use the resources provided by API-CUBA</code></pre>
+<pre><code>All resource of API-CUBA in one place</code></pre>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">https://appcuba.herokuapp.com</code></pre>
+<pre><code class="language-yaml">https://appcuba.herokuapp.com/</code></pre>
 
 
         <h1 id="search">Search</h1>
@@ -172,7 +172,7 @@ Note: This resource will be gradually implemented</a>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://appcuba.herokuapp.com/api/v1/search/municipalities-by-provinces?filter[provincie_id]=12" \
+    --get "/api/v1/search/municipalities-by-provinces" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -180,14 +180,11 @@ Note: This resource will be gradually implemented</a>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://appcuba.herokuapp.com/api/v1/search/municipalities-by-provinces',
+    '/api/v1/search/municipalities-by-provinces',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-        ],
-        'query' =&gt; [
-            'filter[provincie_id]'=&gt; '12',
         ],
     ]
 );
@@ -197,14 +194,8 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/search/municipalities-by-provinces"
+    "/api/v1/search/municipalities-by-provinces"
 );
-
-const params = {
-    "filter[provincie_id]": "12",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -221,16 +212,13 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/search/municipalities-by-provinces'
-params = {
-  'filter[provincie_id]': '12',
-}
+url = '/api/v1/search/municipalities-by-provinces'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, params=params)
+response = requests.request('GET', url, headers=headers)
 response.json()</code></pre></div>
 
 </span>
@@ -301,20 +289,10 @@ response.json()</code></pre></div>
                 <input type="text"
                name="filter[provincie.name]"
                data-endpoint="GETapi-v1-search-municipalities-by-provinces"
-               value="in"
+               value="temporibus"
                data-component="query" hidden>
     <br>
 <p>Name of the province to search</p>
-            </p>
-                    <p>
-                <b><code>filter[provincie_id]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-                <input type="number"
-               name="filter[provincie_id]"
-               data-endpoint="GETapi-v1-search-municipalities-by-provinces"
-               value="12"
-               data-component="query" hidden>
-    <br>
-<p>ID of the province to search</p>
             </p>
                 </form>
 
@@ -332,7 +310,7 @@ Note: This resource will be gradually implemented</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://appcuba.herokuapp.com/api/v1/search/neighborhoods-by-municipality?filter[provincie_id]=6" \
+    --get "/api/v1/search/neighborhoods-by-municipality" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -340,14 +318,11 @@ Note: This resource will be gradually implemented</h2>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://appcuba.herokuapp.com/api/v1/search/neighborhoods-by-municipality',
+    '/api/v1/search/neighborhoods-by-municipality',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-        ],
-        'query' =&gt; [
-            'filter[provincie_id]'=&gt; '6',
         ],
     ]
 );
@@ -357,14 +332,8 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/search/neighborhoods-by-municipality"
+    "/api/v1/search/neighborhoods-by-municipality"
 );
-
-const params = {
-    "filter[provincie_id]": "6",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -381,16 +350,13 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/search/neighborhoods-by-municipality'
-params = {
-  'filter[provincie_id]': '6',
-}
+url = '/api/v1/search/neighborhoods-by-municipality'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, params=params)
+response = requests.request('GET', url, headers=headers)
 response.json()</code></pre></div>
 
 </span>
@@ -461,20 +427,10 @@ response.json()</code></pre></div>
                 <input type="text"
                name="filter[provincie.name]"
                data-endpoint="GETapi-v1-search-neighborhoods-by-municipality"
-               value="qui"
+               value="dolores"
                data-component="query" hidden>
     <br>
 <p>Name of the province to search</p>
-            </p>
-                    <p>
-                <b><code>filter[provincie_id]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-                <input type="number"
-               name="filter[provincie_id]"
-               data-endpoint="GETapi-v1-search-neighborhoods-by-municipality"
-               value="6"
-               data-component="query" hidden>
-    <br>
-<p>ID of the province to search</p>
             </p>
                 </form>
 
@@ -495,7 +451,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://appcuba.herokuapp.com/api/v1/municipalities?page=12" \
+    --get "/api/v1/municipalities?page=2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -503,14 +459,14 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://appcuba.herokuapp.com/api/v1/municipalities',
+    '/api/v1/municipalities',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page'=&gt; '12',
+            'page'=&gt; '2',
         ],
     ]
 );
@@ -520,11 +476,11 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/municipalities"
+    "/api/v1/municipalities"
 );
 
 const params = {
-    "page": "12",
+    "page": "2",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -544,9 +500,9 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/municipalities'
+url = '/api/v1/municipalities'
 params = {
-  'page': '12',
+  'page': '2',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -566,8 +522,8 @@ response.json()</code></pre></div>
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 40,
-        &quot;name&quot;: &quot;Nikkihaven&quot;,
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;Julietville&quot;,
         &quot;provincia&quot;: null
     }
 }</code>
@@ -604,7 +560,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="page"
                data-endpoint="GETapi-v1-municipalities"
-               value="12"
+               value="2"
                data-component="query" hidden>
     <br>
 <p>The page number</p>
@@ -624,11 +580,11 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://appcuba.herokuapp.com/api/v1/municipalities" \
+    "/api/v1/municipalities" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"exercitationem\",
+    \"name\": \"sequi\",
     \"provincie_id\": 10
 }"
 </code></pre></div>
@@ -637,14 +593,14 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://appcuba.herokuapp.com/api/v1/municipalities',
+    '/api/v1/municipalities',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'exercitationem',
+            'name' =&gt; 'sequi',
             'provincie_id' =&gt; 10,
         ],
     ]
@@ -655,7 +611,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/municipalities"
+    "/api/v1/municipalities"
 );
 
 const headers = {
@@ -664,7 +620,7 @@ const headers = {
 };
 
 let body = {
-    "name": "exercitationem",
+    "name": "sequi",
     "provincie_id": 10
 };
 
@@ -679,9 +635,9 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/municipalities'
+url = '/api/v1/municipalities'
 payload = {
-    "name": "exercitationem",
+    "name": "sequi",
     "provincie_id": 10
 }
 headers = {
@@ -758,7 +714,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-municipalities"
-               value="exercitationem"
+               value="sequi"
                data-component="body" hidden>
     <br>
 
@@ -788,14 +744,14 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://appcuba.herokuapp.com/api/v1/post-municipalities" \
+    "/api/v1/post-municipalities" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"name\": [
-        \"sunt\"
+        \"fugiat\"
     ],
-    \"provincie_id\": 12
+    \"provincie_id\": 8
 }"
 </code></pre></div>
 
@@ -803,7 +759,7 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://appcuba.herokuapp.com/api/v1/post-municipalities',
+    '/api/v1/post-municipalities',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -811,9 +767,9 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'name' =&gt; [
-                'sunt',
+                'fugiat',
             ],
-            'provincie_id' =&gt; 12,
+            'provincie_id' =&gt; 8,
         ],
     ]
 );
@@ -823,7 +779,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/post-municipalities"
+    "/api/v1/post-municipalities"
 );
 
 const headers = {
@@ -833,9 +789,9 @@ const headers = {
 
 let body = {
     "name": [
-        "sunt"
+        "fugiat"
     ],
-    "provincie_id": 12
+    "provincie_id": 8
 };
 
 fetch(url, {
@@ -849,12 +805,12 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/post-municipalities'
+url = '/api/v1/post-municipalities'
 payload = {
     "name": [
-        "sunt"
+        "fugiat"
     ],
-    "provincie_id": 12
+    "provincie_id": 8
 }
 headers = {
   'Content-Type': 'application/json',
@@ -936,7 +892,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="provincie_id"
                data-endpoint="POSTapi-v1-post-municipalities"
-               value="12"
+               value="8"
                data-component="body" hidden>
     <br>
 <p>ID of province</p>
@@ -960,13 +916,13 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://appcuba.herokuapp.com/api/v1/post-neighborhoods" \
+    "/api/v1/post-neighborhoods" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"municipalitie_id\": 17,
     \"name\": [
-        \"maxime\"
+        \"odit\"
     ]
 }"
 </code></pre></div>
@@ -975,7 +931,7 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://appcuba.herokuapp.com/api/v1/post-neighborhoods',
+    '/api/v1/post-neighborhoods',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -984,7 +940,7 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'municipalitie_id' =&gt; 17,
             'name' =&gt; [
-                'maxime',
+                'odit',
             ],
         ],
     ]
@@ -995,7 +951,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/post-neighborhoods"
+    "/api/v1/post-neighborhoods"
 );
 
 const headers = {
@@ -1006,7 +962,7 @@ const headers = {
 let body = {
     "municipalitie_id": 17,
     "name": [
-        "maxime"
+        "odit"
     ]
 };
 
@@ -1021,11 +977,11 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/post-neighborhoods'
+url = '/api/v1/post-neighborhoods'
 payload = {
     "municipalitie_id": 17,
     "name": [
-        "maxime"
+        "odit"
     ]
 }
 headers = {
@@ -1127,7 +1083,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://appcuba.herokuapp.com/api/v1/neighborhoods?page=5" \
+    --get "/api/v1/neighborhoods?page=2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1135,14 +1091,14 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://appcuba.herokuapp.com/api/v1/neighborhoods',
+    '/api/v1/neighborhoods',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page'=&gt; '5',
+            'page'=&gt; '2',
         ],
     ]
 );
@@ -1152,11 +1108,11 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/neighborhoods"
+    "/api/v1/neighborhoods"
 );
 
 const params = {
-    "page": "5",
+    "page": "2",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1176,9 +1132,9 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/neighborhoods'
+url = '/api/v1/neighborhoods'
 params = {
-  'page': '5',
+  'page': '2',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1199,7 +1155,7 @@ response.json()</code></pre></div>
 <code class="language-json">{
     &quot;data&quot;: {
         &quot;id&quot;: null,
-        &quot;name_neighborhood&quot;: &quot;Hillsland&quot;
+        &quot;name_neighborhood&quot;: &quot;South Deanna&quot;
     }
 }</code>
  </pre>
@@ -1235,7 +1191,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="page"
                data-endpoint="GETapi-v1-neighborhoods"
-               value="5"
+               value="2"
                data-component="query" hidden>
     <br>
 <p>The number of page.</p>
@@ -1255,12 +1211,12 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://appcuba.herokuapp.com/api/v1/neighborhoods" \
+    "/api/v1/neighborhoods" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"et\",
-    \"municipalitie_id\": 14
+    \"name\": \"aut\",
+    \"municipalitie_id\": 13
 }"
 </code></pre></div>
 
@@ -1268,15 +1224,15 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://appcuba.herokuapp.com/api/v1/neighborhoods',
+    '/api/v1/neighborhoods',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'et',
-            'municipalitie_id' =&gt; 14,
+            'name' =&gt; 'aut',
+            'municipalitie_id' =&gt; 13,
         ],
     ]
 );
@@ -1286,7 +1242,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/neighborhoods"
+    "/api/v1/neighborhoods"
 );
 
 const headers = {
@@ -1295,8 +1251,8 @@ const headers = {
 };
 
 let body = {
-    "name": "et",
-    "municipalitie_id": 14
+    "name": "aut",
+    "municipalitie_id": 13
 };
 
 fetch(url, {
@@ -1310,10 +1266,10 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/neighborhoods'
+url = '/api/v1/neighborhoods'
 payload = {
-    "name": "et",
-    "municipalitie_id": 14
+    "name": "aut",
+    "municipalitie_id": 13
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1389,7 +1345,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-neighborhoods"
-               value="et"
+               value="aut"
                data-component="body" hidden>
     <br>
 
@@ -1399,7 +1355,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="municipalitie_id"
                data-endpoint="POSTapi-v1-neighborhoods"
-               value="14"
+               value="13"
                data-component="body" hidden>
     <br>
 
@@ -1423,12 +1379,12 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://appcuba.herokuapp.com/api/v1/post-provincies" \
+    "/api/v1/post-provincies" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"name\": [
-        \"nihil\"
+        \"laborum\"
     ]
 }"
 </code></pre></div>
@@ -1437,7 +1393,7 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://appcuba.herokuapp.com/api/v1/post-provincies',
+    '/api/v1/post-provincies',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1445,7 +1401,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'name' =&gt; [
-                'nihil',
+                'laborum',
             ],
         ],
     ]
@@ -1456,7 +1412,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/post-provincies"
+    "/api/v1/post-provincies"
 );
 
 const headers = {
@@ -1466,7 +1422,7 @@ const headers = {
 
 let body = {
     "name": [
-        "nihil"
+        "laborum"
     ]
 };
 
@@ -1481,10 +1437,10 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/post-provincies'
+url = '/api/v1/post-provincies'
 payload = {
     "name": [
-        "nihil"
+        "laborum"
     ]
 }
 headers = {
@@ -1576,7 +1532,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://appcuba.herokuapp.com/api/v1/provincies?page=0" \
+    --get "/api/v1/provincies?page=0" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1584,7 +1540,7 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://appcuba.herokuapp.com/api/v1/provincies',
+    '/api/v1/provincies',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1601,7 +1557,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/provincies"
+    "/api/v1/provincies"
 );
 
 const params = {
@@ -1625,7 +1581,7 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/provincies'
+url = '/api/v1/provincies'
 params = {
   'page': '0',
 }
@@ -1721,11 +1677,11 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://appcuba.herokuapp.com/api/v1/provincies" \
+    "/api/v1/provincies" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"consequatur\"
+    \"name\": \"occaecati\"
 }"
 </code></pre></div>
 
@@ -1733,14 +1689,14 @@ response.json()</code></pre></div>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://appcuba.herokuapp.com/api/v1/provincies',
+    '/api/v1/provincies',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'consequatur',
+            'name' =&gt; 'occaecati',
         ],
     ]
 );
@@ -1750,7 +1706,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://appcuba.herokuapp.com/api/v1/provincies"
+    "/api/v1/provincies"
 );
 
 const headers = {
@@ -1759,7 +1715,7 @@ const headers = {
 };
 
 let body = {
-    "name": "consequatur"
+    "name": "occaecati"
 };
 
 fetch(url, {
@@ -1773,9 +1729,9 @@ fetch(url, {
     <pre><code class="language-python">import requests
 import json
 
-url = 'https://appcuba.herokuapp.com/api/v1/provincies'
+url = '/api/v1/provincies'
 payload = {
-    "name": "consequatur"
+    "name": "occaecati"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1851,7 +1807,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-provincies"
-               value="consequatur"
+               value="occaecati"
                data-component="body" hidden>
     <br>
 

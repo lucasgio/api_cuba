@@ -21,15 +21,8 @@ endpoints:
         name: 'filter[provincie.name]'
         description: 'Name of the province to search'
         required: false
-        example: in
+        example: temporibus
         type: string
-        custom: []
-      'filter[provincie_id]':
-        name: 'filter[provincie_id]'
-        description: 'ID of the province to search'
-        required: false
-        example: 12
-        type: integer
         custom: []
     bodyParameters: []
     responses:
@@ -86,15 +79,8 @@ endpoints:
         name: 'filter[provincie.name]'
         description: 'Name of the province to search'
         required: false
-        example: qui
+        example: dolores
         type: string
-        custom: []
-      'filter[provincie_id]':
-        name: 'filter[provincie_id]'
-        description: 'ID of the province to search'
-        required: false
-        example: 6
-        type: integer
         custom: []
     bodyParameters: []
     responses:

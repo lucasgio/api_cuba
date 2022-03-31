@@ -21,14 +21,14 @@ endpoints:
         name: page
         description: 'The page number'
         required: false
-        example: 12
+        example: 2
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":40,"name":"Nikkihaven","provincia":null}}'
+        content: '{"data":{"id":2,"name":"Julietville","provincia":null}}'
         headers: []
         description: null
     responseFields: []
@@ -51,7 +51,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: exercitationem
+        example: sequi
         type: string
         custom: []
       provincie_id:
@@ -112,14 +112,14 @@ endpoints:
         description: ''
         required: true
         example:
-          - sunt
+          - fugiat
         type: 'string[]'
         custom: []
       provincie_id:
         name: provincie_id
         description: 'ID of province'
         required: false
-        example: 12
+        example: 8
         type: integer
         custom: []
     responses:

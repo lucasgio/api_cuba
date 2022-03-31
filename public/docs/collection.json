@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "https:\/\/appcuba.herokuapp.com"
+            "value": "http:\/\/localhost"
         }
     ],
     "info": {
         "name": "API-CUBA",
-        "_postman_id": "a2fda5e0-d9eb-45e7-9bdc-5f90926bb9e4",
+        "_postman_id": "5dab9837-655f-4a8b-b1cd-169b184694f8",
         "description": "API-CUBA Documentation",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,18 +28,12 @@
                             "query": [
                                 {
                                     "key": "filter%5Bprovincie.name%5D",
-                                    "value": "in",
+                                    "value": "temporibus",
                                     "description": "Name of the province to search",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "filter%5Bprovincie_id%5D",
-                                    "value": "12",
-                                    "description": "ID of the province to search",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/search\/municipalities-by-provinces?filter%5Bprovincie.name%5D=in&filter%5Bprovincie_id%5D=12"
+                            "raw": "{{baseUrl}}\/api\/v1\/search\/municipalities-by-provinces?filter%5Bprovincie.name%5D=temporibus"
                         },
                         "method": "GET",
                         "header": [
@@ -76,18 +70,12 @@
                             "query": [
                                 {
                                     "key": "filter%5Bprovincie.name%5D",
-                                    "value": "qui",
+                                    "value": "dolores",
                                     "description": "Name of the province to search",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "filter%5Bprovincie_id%5D",
-                                    "value": "6",
-                                    "description": "ID of the province to search",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/search\/neighborhoods-by-municipality?filter%5Bprovincie.name%5D=qui&filter%5Bprovincie_id%5D=6"
+                            "raw": "{{baseUrl}}\/api\/v1\/search\/neighborhoods-by-municipality?filter%5Bprovincie.name%5D=dolores"
                         },
                         "method": "GET",
                         "header": [
@@ -130,12 +118,12 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "12",
+                                    "value": "2",
                                     "description": "The page number",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/municipalities?page=12"
+                            "raw": "{{baseUrl}}\/api\/v1\/municipalities?page=2"
                         },
                         "method": "GET",
                         "header": [
@@ -158,7 +146,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":40,\"name\":\"Nikkihaven\",\"provincia\":null}}",
+                            "body": "{\"data\":{\"id\":2,\"name\":\"Julietville\",\"provincia\":null}}",
                             "name": ""
                         }
                     ]
@@ -185,7 +173,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"exercitationem\",\"provincie_id\":10}"
+                            "raw": "{\"name\":\"sequi\",\"provincie_id\":10}"
                         },
                         "description": "",
                         "auth": {
@@ -229,7 +217,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":[\"sunt\"],\"provincie_id\":12}"
+                            "raw": "{\"name\":[\"fugiat\"],\"provincie_id\":8}"
                         },
                         "description": "",
                         "auth": {
@@ -279,7 +267,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"municipalitie_id\":17,\"name\":[\"maxime\"]}"
+                            "raw": "{\"municipalitie_id\":17,\"name\":[\"odit\"]}"
                         },
                         "description": "",
                         "auth": {
@@ -310,12 +298,12 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "5",
+                                    "value": "2",
                                     "description": "The number of page.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/neighborhoods?page=5"
+                            "raw": "{{baseUrl}}\/api\/v1\/neighborhoods?page=2"
                         },
                         "method": "GET",
                         "header": [
@@ -338,7 +326,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"name_neighborhood\":\"Hillsland\"}}",
+                            "body": "{\"data\":{\"id\":null,\"name_neighborhood\":\"South Deanna\"}}",
                             "name": ""
                         }
                     ]
@@ -365,7 +353,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"et\",\"municipalitie_id\":14}"
+                            "raw": "{\"name\":\"aut\",\"municipalitie_id\":13}"
                         },
                         "description": "",
                         "auth": {
@@ -415,7 +403,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":[\"nihil\"]}"
+                            "raw": "{\"name\":[\"laborum\"]}"
                         },
                         "description": "",
                         "auth": {
@@ -501,7 +489,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"consequatur\"}"
+                            "raw": "{\"name\":\"occaecati\"}"
                         },
                         "description": "",
                         "auth": {
