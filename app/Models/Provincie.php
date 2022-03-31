@@ -15,6 +15,13 @@ class Provincie extends Model
 {
     use HasFactory;
 
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
     protected $fillable = [
         'name',
     ];
