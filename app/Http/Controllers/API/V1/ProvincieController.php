@@ -136,7 +136,6 @@ class ProvincieController extends ApiController
      */
     public function storeMassive(Request $request, ProvinciesActions $provinciesActions): JsonResponse
     {
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|array',
         ]);
