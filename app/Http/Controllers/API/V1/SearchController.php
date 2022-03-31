@@ -53,7 +53,6 @@ class SearchController extends ApiController
      * }
      *
      * @queryParam filter[provincie.name] string Name of the province to search
-     * @queryParam filter[provincie_id] int ID of the province to search
      * @param Request $request
      * @return JsonResponse
      */
@@ -108,7 +107,6 @@ class SearchController extends ApiController
      * }
      *
      * @queryParam filter[provincie.name] string Name of the province to search
-     * @queryParam filter[provincie_id] int ID of the province to search
      * @param Request $request
      * @return JsonResponse
      */
