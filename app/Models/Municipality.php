@@ -15,8 +15,6 @@ class Municipality extends Model
 {
     use HasFactory;
 
-
-
     protected $fillable = [
         'name',
         'provincie_id',

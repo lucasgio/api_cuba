@@ -14,8 +14,6 @@ class Neighborhoods extends Model
 {
     use HasFactory;
 
-
-
     protected $fillable = [
         'name',
         'municipalitie_id',
