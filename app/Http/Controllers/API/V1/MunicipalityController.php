@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\InformationActions;
 use App\Actions\MunicipalitiesActions;
 use App\Actions\NeighborhoodActions;
 use App\Http\Controllers\ApiController;
@@ -34,10 +35,13 @@ class MunicipalityController extends ApiController
      *
      *
      * @queryParam page int The page number
+     * @param \Illuminate\Http\Client\Request $request
+     * @param InformationActions $informationActions
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(\Illuminate\Http\Client\Request $request, InformationActions $informationActions): JsonResponse
     {
+        $informationActions->handler($request);
         $municipalities = MunicipalitiesResource::collection(Municipality::paginate(10));
 
         return $this->collectionDataResponse($municipalities);
@@ -73,10 +77,13 @@ class MunicipalityController extends ApiController
      * @bodyParam name string required
      * @bodyParam provincie_id int
      * @param MunicipalityRequest $request
+     * @param InformationActions $informationActions
      * @return JsonResponse
      */
-    public function store(MunicipalityRequest $request): JsonResponse
+    public function store(MunicipalityRequest $request, InformationActions $informationActions): JsonResponse
     {
+
+        $informationActions->handler($request);
         $municipalities = Municipality::create($request->validated());
 
         return $this->singleDataResponse($this->resourceSuccess(), $municipalities, 201);

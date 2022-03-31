@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\InformationActions;
 use App\Actions\ProvinciesActions;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\ProvincieRequest;
 use App\Http\Resources\ProvinciesResource;
+use App\Models\Information;
 use App\Models\Provincie;
 use App\Traits\InfoResponse;
 use Exception;
@@ -55,10 +57,13 @@ class ProvincieController extends ApiController
      *
      *
      * @queryParam page int The page number. Example: /api/v1/provincies?page=2
+     * @param Request $request
+     * @param InformationActions $informationActions
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request, InformationActions $informationActions): JsonResponse
     {
+        $informationActions->handler($request);
         $provincies = ProvinciesResource::collection(Provincie::paginate(10));
 
         return $this->collectionDataResponse($provincies);
@@ -96,8 +101,9 @@ class ProvincieController extends ApiController
      * @param ProvincieRequest $request
      * @return JsonResponse
      */
-    public function store(ProvincieRequest $request): JsonResponse
+    public function store(ProvincieRequest $request, InformationActions $informationActions): JsonResponse
     {
+        $informationActions->handler($request);
         $provincies = Provincie::create($request->validated());
 
         return $this->singleDataResponse($this->resourceSuccess(), $provincies, 201);
@@ -130,6 +136,7 @@ class ProvincieController extends ApiController
      */
     public function storeMassive(Request $request, ProvinciesActions $provinciesActions): JsonResponse
     {
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|array',
         ]);
