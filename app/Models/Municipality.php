@@ -15,14 +15,20 @@ class Municipality extends Model
 {
     use HasFactory;
 
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+
     protected $fillable = [
         'name',
         'provincie_id',
     ];
 
-    protected $casts = [
-        'id' => 'string',
-    ];
+
 
     public function provincie(): BelongsToAlias
     {
