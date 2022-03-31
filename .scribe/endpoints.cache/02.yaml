@@ -30,7 +30,7 @@ endpoints:
         description: ''
         required: true
         example:
-          - maxime
+          - odit
         type: 'string[]'
         custom: []
     responses:
@@ -74,14 +74,14 @@ endpoints:
         name: page
         description: 'The number of page.'
         required: false
-        example: 5
+        example: 2
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":null,"name_neighborhood":"Hillsland"}}'
+        content: '{"data":{"id":null,"name_neighborhood":"South Deanna"}}'
         headers: []
         description: null
     responseFields: []
@@ -104,14 +104,14 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: et
+        example: aut
         type: string
         custom: []
       municipalitie_id:
         name: municipalitie_id
         description: ''
         required: true
-        example: 14
+        example: 13
         type: integer
         custom: []
     responses:
