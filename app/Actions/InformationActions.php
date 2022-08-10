@@ -20,6 +20,5 @@ class InformationActions
             'ip' => $request->getClientIp(),
             'method' => $request->getMethod(),
         ]);
-
     }
 }

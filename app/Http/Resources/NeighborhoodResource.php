@@ -25,12 +25,12 @@ class NeighborhoodResource extends JsonResource
         'name_neighborhood' => 'mixed',
         'name_municipality' => "\App\Http\Resources\MunicipalitiesResource",
     ])]
- public function toArray($request): array|JsonSerializable|Arrayable
- {
-     return [
-         'id' => $this->id,
-         'name_neighborhood' => $this->name,
-         'name_municipality' => MunicipalitiesResource::make($this->whenLoaded('municipalities')),
-     ];
- }
+    public function toArray($request): array|JsonSerializable|Arrayable
+    {
+        return [
+            'id' => $this->id,
+            'name_neighborhood' => $this->name,
+            'name_municipality' => MunicipalitiesResource::make($this->whenLoaded('municipalities')),
+        ];
+    }
 }
