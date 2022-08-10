@@ -9,10 +9,12 @@ use App\Http\Requests\ProvincieRequest;
 use App\Http\Resources\ProvinciesResource;
 use App\Models\Information;
 use App\Models\Provincie;
+use App\Services\CacheProvinces;
 use App\Traits\InfoResponse;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -24,6 +26,10 @@ use Illuminate\Support\Facades\Validator;
 class ProvincieController extends ApiController
 {
     use InfoResponse;
+
+    private int $timer = 3600;
+
+    private int $pagination = 10;
 
     /**
      * Display a listing of the resource.
@@ -59,14 +65,19 @@ class ProvincieController extends ApiController
      * @queryParam page int The page number. Example: /api/v1/provincies?page=2
      * @param Request $request
      * @param InformationActions $informationActions
+     * @param CacheProvinces $cacheProvinces
      * @return JsonResponse
      */
-    public function index(Request $request, InformationActions $informationActions): JsonResponse
+    public function index(Request $request, InformationActions $informationActions, CacheProvinces $cacheProvinces): JsonResponse
     {
         $informationActions->handler($request);
-        $provincies = ProvinciesResource::collection(Provincie::paginate(10));
+        $cache = $cacheProvinces->rememberCache($this->timer);
 
-        return $this->collectionDataResponse($provincies);
+        if ($request->pagination == 'off') {
+            return $this->singleDataResponse($this->resourceList(), $cache, 200);
+        } else {
+            return $this->collectionDataResponse(ProvinciesResource::collection(Provincie::paginate($this->pagination)));
+        }
     }
 
     /**
@@ -99,6 +110,7 @@ class ProvincieController extends ApiController
      *
      * @bodyParam name string required
      * @param ProvincieRequest $request
+     * @param InformationActions $informationActions
      * @return JsonResponse
      */
     public function store(ProvincieRequest $request, InformationActions $informationActions): JsonResponse
