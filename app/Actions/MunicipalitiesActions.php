@@ -33,7 +33,7 @@ class MunicipalitiesActions extends ApiController
             DB::commit();
         } catch (Exception $e) {
             DB::rollback();
-            return abort(422, 'He ocurrido un error temporal');
+            return abort(422, 'Ha ocurrido un error temporal');
         }
 
         return true;

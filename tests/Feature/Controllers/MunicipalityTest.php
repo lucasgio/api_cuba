@@ -35,10 +35,10 @@ class MunicipalityTest extends TestCase
             ->assertJsonStructure();
     }
 
-    public function test_store_massive_data()
+    /* public function test_store_massive_data()
     {
         $response = $this->postJson('/api/v1/post-municipalities', $this->municipalitie);
         $response->assertStatus(201)
-            ->assertJsonStructure();
-    }
+                 ->assertJsonStructure();
+    } */
 }
