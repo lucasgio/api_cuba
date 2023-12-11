@@ -47,13 +47,13 @@ class NeighborhoodRequest extends BaseRequest
         'name' => 'string',
         'municipalitie_id' => 'string',
     ])]
- public function attributes(): array
- {
-     return [
-         'name' => 'barrio o consejo popular',
-         'municipalitie_id' => 'municipio',
-     ];
- }
+    public function attributes(): array
+    {
+        return [
+            'name' => 'barrio o consejo popular',
+            'municipalitie_id' => 'municipio',
+        ];
+    }
 
     /**
      * @return string[]
@@ -63,12 +63,12 @@ class NeighborhoodRequest extends BaseRequest
         'exists' => 'string',
         'unique' => 'string',
     ])]
- public function messages(): array
- {
-     return [
-         'required' => 'El campo :attribute es obligatorio',
-         'exists' => 'El campo :attribute no existe en el sistema',
-         'unique' => 'El campo :attribute debe ser único',
-     ];
- }
+    public function messages(): array
+    {
+        return [
+            'required' => 'El campo :attribute es obligatorio',
+            'exists' => 'El campo :attribute no existe en el sistema',
+            'unique' => 'El campo :attribute debe ser único',
+        ];
+    }
 }

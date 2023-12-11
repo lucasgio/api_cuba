@@ -21,7 +21,6 @@ class MunicipalitiesActions extends ApiController
     public function handler($request): JsonResponse|Exception|bool
     {
         try {
-
             foreach ($request as $municipality) {
                 foreach ($municipality['name'] as $item) {
                     Municipality::create([
@@ -33,6 +32,7 @@ class MunicipalitiesActions extends ApiController
             DB::commit();
         } catch (Exception $e) {
             DB::rollback();
+
             return abort(422, 'Ha ocurrido un error temporal');
         }
 

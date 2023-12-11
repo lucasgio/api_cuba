@@ -7,12 +7,10 @@ use App\Interfaces\CacheInterface;
 use App\Models\Municipality;
 use Illuminate\Support\Facades\Cache;
 
-
-class  CacheMunicipalities implements CacheInterface
+class CacheMunicipalities implements CacheInterface
 {
-
     public function rememberCache(int $timer)
     {
-        return Cache::remember('municipalities', $timer, fn() => MunicipalitiesResource::collection(Municipality::all()));
+        return Cache::remember('municipalities', $timer, fn () => MunicipalitiesResource::collection(Municipality::all()));
     }
 }
