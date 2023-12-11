@@ -31,7 +31,7 @@ class MunicipalitiesResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'provincia' => ProvinciesResource::make($this->provincies),
+            'provincia' => ProvinciesResource::make($this->provincie),
         ];
     }
 }
