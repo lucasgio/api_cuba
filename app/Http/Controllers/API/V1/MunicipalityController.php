@@ -25,6 +25,10 @@ class MunicipalityController extends ApiController
 {
     use InfoResponse;
 
+    private int $pagination = 10;
+
+    private int $timer = 3600;
+
     /**
      * Resource to get all municipalities
      *
@@ -39,12 +43,16 @@ class MunicipalityController extends ApiController
      * @param InformationActions $informationActions
      * @return JsonResponse
      */
-    public function index(Request $request, InformationActions $informationActions): JsonResponse
+    public function index(Request $request, InformationActions $informationActions, \App\Services\CacheMunicipalities $cacheMunicipalities): JsonResponse
     {
         $informationActions->handler($request);
-        $municipalities = MunicipalitiesResource::collection(Municipality::paginate(10));
+        $cache = $cacheMunicipalities->rememberCache($this->timer);
 
-        return $this->collectionDataResponse($municipalities);
+        if ($request->pagination == 'off') {
+            return $this->singleDataResponse($this->resourceList(), $cache, 200);
+        } else {
+            return $this->collectionDataResponse(MunicipalitiesResource::collection(Municipality::paginate($this->pagination)));
+        }
     }
 
     /**

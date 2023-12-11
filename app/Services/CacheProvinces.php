@@ -11,6 +11,6 @@ class CacheProvinces implements CacheInterface
 {
     public function rememberCache(int $timer)
     {
-        return  Cache::remember('provinces', $timer, fn () => ProvinciesResource::collection(Provincie::all()));
+        return Cache::remember('provinces', $timer, fn () => ProvinciesResource::collection(Provincie::all()));
     }
 }
