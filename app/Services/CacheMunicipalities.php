@@ -11,6 +11,8 @@ class CacheMunicipalities implements CacheInterface
 {
     public function rememberCache(int $timer)
     {
-        return Cache::remember('municipalities', $timer, fn () => MunicipalitiesResource::collection(Municipality::all()));
+
+        return Cache::remember('municipalities', $timer, fn() => MunicipalitiesResource::collection(Municipality::all()));
+
     }
 }

@@ -101,7 +101,7 @@ class MunicipalityController extends ApiController
      *
      * @group Municipality
      *
-     * @response status=200
+     * @response status=201
      *  {
      *     {
      *       "data": true,
