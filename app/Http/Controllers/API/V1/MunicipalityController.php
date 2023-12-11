@@ -123,16 +123,9 @@ class MunicipalityController extends ApiController
      */
     public function storeMassive(Request $request, MunicipalitiesActions $municipalitiesActions): JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|array',
-            'provincie_id' => 'nullable|int|exists:provincies,id',
-        ]);
+        //dd($request);
 
-        if ($validator->fails()) {
-            return $this->singleDataResponse($this->error(), $validator->errors()->all(), 422);
-        }
-
-        $resp = $municipalitiesActions->handler($request);
+        $resp = $municipalitiesActions->handler($request->all());
 
         return $this->singleDataResponse($this->resourceSuccess(), $resp, 201);
     }

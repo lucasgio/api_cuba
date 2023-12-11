@@ -21,18 +21,19 @@ class MunicipalitiesActions extends ApiController
     public function handler($request): JsonResponse|Exception|bool
     {
         try {
-            $municipality = $request->name;
-            foreach ($municipality as $value) {
-                Municipality::create([
-                    'provincie_id' => $request->provincie_id,
-                    'name' => $value,
-                ]);
+
+            foreach ($request as $municipality) {
+                foreach ($municipality['name'] as $item) {
+                    Municipality::create([
+                        'provincie_id' => $municipality['provincie_id'],
+                        'name' => $item,
+                    ]);
+                }
             }
             DB::commit();
         } catch (Exception $e) {
             DB::rollback();
-
-            return abort(422, 'Entrada duplicada');
+            return abort(422, 'He ocurrido un error temporal');
         }
 
         return true;
