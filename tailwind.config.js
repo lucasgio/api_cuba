@@ -5,9 +5,9 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        fontFamily:{
-            'ubuntu':['Ubuntu','sans-serif']
-        }
+        fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+        },
     },
     plugins: [],
-}
+};
