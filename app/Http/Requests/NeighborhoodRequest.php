@@ -25,6 +25,9 @@ class NeighborhoodRequest extends BaseRequest
     public function rules(): array
     {
         return match ($this->method()) {
+            'GET' => [
+
+            ],
             'POST' => [
                 'name' => 'required|string|unique:neighborhoods,name',
                 'municipalitie_id' => 'required|int|exists:municipalities,id',

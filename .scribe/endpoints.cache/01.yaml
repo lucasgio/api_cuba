@@ -21,14 +21,14 @@ endpoints:
         name: page
         description: 'The page number'
         required: false
-        example: 2
+        example: 1
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":2,"name":"Julietville","provincia":null}}'
+        content: '{"data":{"id":173,"name":"Hayleeborough","provincia":{"id":"20","name":"Fadelview"}}}'
         headers: []
         description: null
     responseFields: []
@@ -51,14 +51,14 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: sequi
+        example: doloribus
         type: string
         custom: []
       provincie_id:
         name: provincie_id
         description: ''
         required: false
-        example: 10
+        example: 11
         type: integer
         custom: []
     responses:
@@ -112,19 +112,19 @@ endpoints:
         description: ''
         required: true
         example:
-          - fugiat
+          - quis
         type: 'string[]'
         custom: []
       provincie_id:
         name: provincie_id
         description: 'ID of province'
         required: false
-        example: 8
+        example: 11
         type: integer
         custom: []
     responses:
       -
-        status: 200
+        status: 201
         content: |-
           {
               {
@@ -133,7 +133,7 @@ endpoints:
               }
            }
         headers: []
-        description: '200'
+        description: '201'
       -
         status: 422
         content: |-

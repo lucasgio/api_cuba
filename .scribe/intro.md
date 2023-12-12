@@ -1,11 +1,11 @@
 # Introduction
 
-Documentación de API_CUBA
+API-CUBA Documentation
 
-      Esta documentación te dará información acerca de los diferentes endpoint de la API
+Information necessary to use the resources provided by API-CUBA
 
 > Base URL
 
 ```yaml
-http://localhost
+
 ```

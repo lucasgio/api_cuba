@@ -19,7 +19,7 @@ endpoints:
         name: 'filter[provincie.name]'
         description: 'Name of the province to search'
         required: false
-        example: temporibus
+        example: et
         type: string
         custom: []
     bodyParameters: []
@@ -77,7 +77,7 @@ endpoints:
         name: 'filter[provincie.name]'
         description: 'Name of the province to search'
         required: false
-        example: dolores
+        example: deleniti
         type: string
         custom: []
     bodyParameters: []

@@ -20,7 +20,7 @@ endpoints:
         name: municipalitie_id
         description: 'ID of municipalities'
         required: false
-        example: 17
+        example: 13
         type: integer
         custom: []
       name:
@@ -28,7 +28,7 @@ endpoints:
         description: ''
         required: true
         example:
-          - odit
+          - nam
         type: 'string[]'
         custom: []
     responses:
@@ -72,14 +72,14 @@ endpoints:
         name: page
         description: 'The number of page.'
         required: false
-        example: 2
+        example: 7
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":null,"name_neighborhood":"South Deanna"}}'
+        content: '{"data":{"id":"2","name_neighborhood":"Mayertburgh"}}'
         headers: []
         description: null
     responseFields: []
@@ -102,14 +102,14 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: aut
+        example: est
         type: string
         custom: []
       municipalitie_id:
         name: municipalitie_id
         description: ''
         required: true
-        example: 13
+        example: 14
         type: integer
         custom: []
     responses:

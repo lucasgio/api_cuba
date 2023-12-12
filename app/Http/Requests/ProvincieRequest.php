@@ -6,24 +6,17 @@ use JetBrains\PhpStorm\ArrayShape;
 
 class ProvincieRequest extends BaseRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+
     public function rules(): array
     {
         return match ($this->method()) {
+            'GET' => [],
             'POST' => [
                 'name' => 'required|unique:provincies,name',
             ],
@@ -37,10 +30,7 @@ class ProvincieRequest extends BaseRequest
         };
     }
 
-    /**
-     * @return string[]
-     */
-    #[ArrayShape(['name' => 'string', 'id' => 'string'])]
+
     public function attributes(): array
     {
         return [
@@ -51,10 +41,6 @@ class ProvincieRequest extends BaseRequest
         ];
     }
 
-    /**
-     * @return string[]
-     */
-    #[ArrayShape(['required' => 'string', 'unique' => 'string'])]
     public function messages(): array
     {
         return [

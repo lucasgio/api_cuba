@@ -21,7 +21,7 @@ endpoints:
         description: ''
         required: true
         example:
-          - laborum
+          - aperiam
         type: 'string[]'
         custom: []
     responses:
@@ -119,7 +119,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: occaecati
+        example: asperiores
         type: string
         custom: []
     responses:

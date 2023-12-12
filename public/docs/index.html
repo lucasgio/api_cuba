@@ -41,14 +41,14 @@
     </span>
 </a>
 <div class="tocify-wrapper">
-
+    
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="php">php</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                             <button type="button" class="lang-button" data-language-name="python">python</button>
                     </div>
-
+    
     <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
     </div>
@@ -58,15 +58,15 @@
                     <li class="tocify-item level-1" data-unique="introduction">
                         <a href="#introduction">Introduction</a>
                     </li>
-
+                                            
                                                                     </ul>
                                                 <ul id="tocify-header-1" class="tocify-header">
                     <li class="tocify-item level-1" data-unique="authenticating-requests">
                         <a href="#authenticating-requests">Authenticating requests</a>
                     </li>
-
+                                            
                                                 </ul>
-
+                    
                     <ul id="tocify-header-2" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="search">
                     <a href="#search">Search</a>
@@ -129,8 +129,8 @@ Note: This resource will be gradually implemented</a>
                     </li>
                                                     </ul>
                             </ul>
-
-
+        
+                        
             </div>
 
             <ul class="toc-footer" id="toc-footer">
@@ -139,7 +139,7 @@ Note: This resource will be gradually implemented</a>
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 31 2022</li>
+        <li>Last updated: December 12 2023</li>
     </ul>
 </div>
 
@@ -148,16 +148,18 @@ Note: This resource will be gradually implemented</a>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <p>API-CUBA Documentation</p>
-<pre><code>All resource of API-CUBA in one place</code></pre>
+<p>Information necessary to use the resources provided by API-CUBA</p>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">https://appcuba.herokuapp.com/</code></pre>
+<pre><code class="language-yaml"></code></pre>
 
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
 
         <h1 id="search">Search</h1>
 
-
+    
 
             <h2 id="search-GETapi-v1-search-municipalities-by-provinces">Resource to search for the municipalities of a province</h2>
 
@@ -289,7 +291,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="filter[provincie.name]"
                data-endpoint="GETapi-v1-search-municipalities-by-provinces"
-               value="temporibus"
+               value="et"
                data-component="query" hidden>
     <br>
 <p>Name of the province to search</p>
@@ -427,7 +429,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="filter[provincie.name]"
                data-endpoint="GETapi-v1-search-neighborhoods-by-municipality"
-               value="dolores"
+               value="deleniti"
                data-component="query" hidden>
     <br>
 <p>Name of the province to search</p>
@@ -436,7 +438,7 @@ response.json()</code></pre></div>
 
         <h1 id="municipality">Municipality</h1>
 
-
+    
 
             <h2 id="municipality-GETapi-v1-municipalities">Resource to get all municipalities</h2>
 
@@ -451,7 +453,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "/api/v1/municipalities?page=2" \
+    --get "/api/v1/municipalities?page=1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -466,7 +468,7 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page'=&gt; '2',
+            'page'=&gt; '1',
         ],
     ]
 );
@@ -480,7 +482,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 );
 
 const params = {
-    "page": "2",
+    "page": "1",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -502,7 +504,7 @@ import json
 
 url = '/api/v1/municipalities'
 params = {
-  'page': '2',
+  'page': '1',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -522,9 +524,12 @@ response.json()</code></pre></div>
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 2,
-        &quot;name&quot;: &quot;Julietville&quot;,
-        &quot;provincia&quot;: null
+        &quot;id&quot;: 173,
+        &quot;name&quot;: &quot;Hayleeborough&quot;,
+        &quot;provincia&quot;: {
+            &quot;id&quot;: &quot;20&quot;,
+            &quot;name&quot;: &quot;Fadelview&quot;
+        }
     }
 }</code>
  </pre>
@@ -560,7 +565,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="page"
                data-endpoint="GETapi-v1-municipalities"
-               value="2"
+               value="1"
                data-component="query" hidden>
     <br>
 <p>The page number</p>
@@ -584,8 +589,8 @@ response.json()</code></pre></div>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"sequi\",
-    \"provincie_id\": 10
+    \"name\": \"doloribus\",
+    \"provincie_id\": 11
 }"
 </code></pre></div>
 
@@ -600,8 +605,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'sequi',
-            'provincie_id' =&gt; 10,
+            'name' =&gt; 'doloribus',
+            'provincie_id' =&gt; 11,
         ],
     ]
 );
@@ -620,8 +625,8 @@ const headers = {
 };
 
 let body = {
-    "name": "sequi",
-    "provincie_id": 10
+    "name": "doloribus",
+    "provincie_id": 11
 };
 
 fetch(url, {
@@ -637,8 +642,8 @@ import json
 
 url = '/api/v1/municipalities'
 payload = {
-    "name": "sequi",
-    "provincie_id": 10
+    "name": "doloribus",
+    "provincie_id": 11
 }
 headers = {
   'Content-Type': 'application/json',
@@ -714,7 +719,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-municipalities"
-               value="sequi"
+               value="doloribus"
                data-component="body" hidden>
     <br>
 
@@ -724,7 +729,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="provincie_id"
                data-endpoint="POSTapi-v1-municipalities"
-               value="10"
+               value="11"
                data-component="body" hidden>
     <br>
 
@@ -749,9 +754,9 @@ response.json()</code></pre></div>
     --header "Accept: application/json" \
     --data "{
     \"name\": [
-        \"fugiat\"
+        \"quis\"
     ],
-    \"provincie_id\": 8
+    \"provincie_id\": 11
 }"
 </code></pre></div>
 
@@ -767,9 +772,9 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'name' =&gt; [
-                'fugiat',
+                'quis',
             ],
-            'provincie_id' =&gt; 8,
+            'provincie_id' =&gt; 11,
         ],
     ]
 );
@@ -789,9 +794,9 @@ const headers = {
 
 let body = {
     "name": [
-        "fugiat"
+        "quis"
     ],
-    "provincie_id": 8
+    "provincie_id": 11
 };
 
 fetch(url, {
@@ -808,9 +813,9 @@ import json
 url = '/api/v1/post-municipalities'
 payload = {
     "name": [
-        "fugiat"
+        "quis"
     ],
-    "provincie_id": 8
+    "provincie_id": 11
 }
 headers = {
   'Content-Type': 'application/json',
@@ -824,7 +829,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-POSTapi-v1-post-municipalities">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (201):</p>
         </blockquote>
                 <pre>
 
@@ -892,7 +897,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="provincie_id"
                data-endpoint="POSTapi-v1-post-municipalities"
-               value="8"
+               value="11"
                data-component="body" hidden>
     <br>
 <p>ID of province</p>
@@ -901,7 +906,7 @@ response.json()</code></pre></div>
 
         <h1 id="neighborhood">Neighborhood</h1>
 
-
+    
 
             <h2 id="neighborhood-POSTapi-v1-post-neighborhoods">Resource to store a lot of municipalities</h2>
 
@@ -920,9 +925,9 @@ response.json()</code></pre></div>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"municipalitie_id\": 17,
+    \"municipalitie_id\": 13,
     \"name\": [
-        \"odit\"
+        \"nam\"
     ]
 }"
 </code></pre></div>
@@ -938,9 +943,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'municipalitie_id' =&gt; 17,
+            'municipalitie_id' =&gt; 13,
             'name' =&gt; [
-                'odit',
+                'nam',
             ],
         ],
     ]
@@ -960,9 +965,9 @@ const headers = {
 };
 
 let body = {
-    "municipalitie_id": 17,
+    "municipalitie_id": 13,
     "name": [
-        "odit"
+        "nam"
     ]
 };
 
@@ -979,9 +984,9 @@ import json
 
 url = '/api/v1/post-neighborhoods'
 payload = {
-    "municipalitie_id": 17,
+    "municipalitie_id": 13,
     "name": [
-        "odit"
+        "nam"
     ]
 }
 headers = {
@@ -1050,7 +1055,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="municipalitie_id"
                data-endpoint="POSTapi-v1-post-neighborhoods"
-               value="17"
+               value="13"
                data-component="body" hidden>
     <br>
 <p>ID of municipalities</p>
@@ -1083,7 +1088,7 @@ response.json()</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "/api/v1/neighborhoods?page=2" \
+    --get "/api/v1/neighborhoods?page=7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1098,7 +1103,7 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page'=&gt; '2',
+            'page'=&gt; '7',
         ],
     ]
 );
@@ -1112,7 +1117,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 );
 
 const params = {
-    "page": "2",
+    "page": "7",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1134,7 +1139,7 @@ import json
 
 url = '/api/v1/neighborhoods'
 params = {
-  'page': '2',
+  'page': '7',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1154,8 +1159,8 @@ response.json()</code></pre></div>
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: null,
-        &quot;name_neighborhood&quot;: &quot;South Deanna&quot;
+        &quot;id&quot;: &quot;2&quot;,
+        &quot;name_neighborhood&quot;: &quot;Mayertburgh&quot;
     }
 }</code>
  </pre>
@@ -1191,7 +1196,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="page"
                data-endpoint="GETapi-v1-neighborhoods"
-               value="2"
+               value="7"
                data-component="query" hidden>
     <br>
 <p>The number of page.</p>
@@ -1215,8 +1220,8 @@ response.json()</code></pre></div>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"aut\",
-    \"municipalitie_id\": 13
+    \"name\": \"est\",
+    \"municipalitie_id\": 14
 }"
 </code></pre></div>
 
@@ -1231,8 +1236,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'aut',
-            'municipalitie_id' =&gt; 13,
+            'name' =&gt; 'est',
+            'municipalitie_id' =&gt; 14,
         ],
     ]
 );
@@ -1251,8 +1256,8 @@ const headers = {
 };
 
 let body = {
-    "name": "aut",
-    "municipalitie_id": 13
+    "name": "est",
+    "municipalitie_id": 14
 };
 
 fetch(url, {
@@ -1268,8 +1273,8 @@ import json
 
 url = '/api/v1/neighborhoods'
 payload = {
-    "name": "aut",
-    "municipalitie_id": 13
+    "name": "est",
+    "municipalitie_id": 14
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1345,7 +1350,7 @@ response.json()</code></pre></div>
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-neighborhoods"
-               value="aut"
+               value="est"
                data-component="body" hidden>
     <br>
 
@@ -1355,7 +1360,7 @@ response.json()</code></pre></div>
                 <input type="number"
                name="municipalitie_id"
                data-endpoint="POSTapi-v1-neighborhoods"
-               value="13"
+               value="14"
                data-component="body" hidden>
     <br>
 
@@ -1364,7 +1369,7 @@ response.json()</code></pre></div>
 
         <h1 id="province">Province</h1>
 
-
+    
 
             <h2 id="province-POSTapi-v1-post-provincies">Resource to store multiples provinces</h2>
 
@@ -1384,7 +1389,7 @@ response.json()</code></pre></div>
     --header "Accept: application/json" \
     --data "{
     \"name\": [
-        \"laborum\"
+        \"aperiam\"
     ]
 }"
 </code></pre></div>
@@ -1401,7 +1406,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'name' =&gt; [
-                'laborum',
+                'aperiam',
             ],
         ],
     ]
@@ -1422,7 +1427,7 @@ const headers = {
 
 let body = {
     "name": [
-        "laborum"
+        "aperiam"
     ]
 };
 
@@ -1440,7 +1445,7 @@ import json
 url = '/api/v1/post-provincies'
 payload = {
     "name": [
-        "laborum"
+        "aperiam"
     ]
 }
 headers = {
@@ -1681,7 +1686,7 @@ response.json()</code></pre></div>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"occaecati\"
+    \"name\": \"asperiores\"
 }"
 </code></pre></div>
 
@@ -1696,7 +1701,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'occaecati',
+            'name' =&gt; 'asperiores',
         ],
     ]
 );
@@ -1715,7 +1720,7 @@ const headers = {
 };
 
 let body = {
-    "name": "occaecati"
+    "name": "asperiores"
 };
 
 fetch(url, {
@@ -1731,7 +1736,7 @@ import json
 
 url = '/api/v1/provincies'
 payload = {
-    "name": "occaecati"
+    "name": "asperiores"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -1807,16 +1812,16 @@ response.json()</code></pre></div>
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1-provincies"
-               value="occaecati"
+               value="asperiores"
                data-component="body" hidden>
     <br>
 
         </p>
         </form>
 
+    
 
-
-
+        
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

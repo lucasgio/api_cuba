@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "http:\/\/api_cuba.test"
         }
     ],
     "info": {
         "name": "API-CUBA",
-        "_postman_id": "5dab9837-655f-4a8b-b1cd-169b184694f8",
+        "_postman_id": "9690b909-e2fd-46e5-a331-6f377fb2f91e",
         "description": "API-CUBA Documentation",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,12 +28,12 @@
                             "query": [
                                 {
                                     "key": "filter%5Bprovincie.name%5D",
-                                    "value": "temporibus",
+                                    "value": "et",
                                     "description": "Name of the province to search",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/search\/municipalities-by-provinces?filter%5Bprovincie.name%5D=temporibus"
+                            "raw": "{{baseUrl}}\/api\/v1\/search\/municipalities-by-provinces?filter%5Bprovincie.name%5D=et"
                         },
                         "method": "GET",
                         "header": [
@@ -70,12 +70,12 @@
                             "query": [
                                 {
                                     "key": "filter%5Bprovincie.name%5D",
-                                    "value": "dolores",
+                                    "value": "deleniti",
                                     "description": "Name of the province to search",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/search\/neighborhoods-by-municipality?filter%5Bprovincie.name%5D=dolores"
+                            "raw": "{{baseUrl}}\/api\/v1\/search\/neighborhoods-by-municipality?filter%5Bprovincie.name%5D=deleniti"
                         },
                         "method": "GET",
                         "header": [
@@ -118,12 +118,12 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "2",
+                                    "value": "1",
                                     "description": "The page number",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/municipalities?page=2"
+                            "raw": "{{baseUrl}}\/api\/v1\/municipalities?page=1"
                         },
                         "method": "GET",
                         "header": [
@@ -146,7 +146,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":2,\"name\":\"Julietville\",\"provincia\":null}}",
+                            "body": "{\"data\":{\"id\":173,\"name\":\"Hayleeborough\",\"provincia\":{\"id\":\"20\",\"name\":\"Fadelview\"}}}",
                             "name": ""
                         }
                     ]
@@ -173,7 +173,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"sequi\",\"provincie_id\":10}"
+                            "raw": "{\"name\":\"doloribus\",\"provincie_id\":11}"
                         },
                         "description": "",
                         "auth": {
@@ -217,7 +217,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":[\"fugiat\"],\"provincie_id\":8}"
+                            "raw": "{\"name\":[\"quis\"],\"provincie_id\":11}"
                         },
                         "description": "",
                         "auth": {
@@ -227,7 +227,7 @@
                     "response": [
                         {
                             "header": [],
-                            "code": 200,
+                            "code": 201,
                             "body": "{\n    {\n      \"data\": true,\n      \"message\": \"El recurso se ha creado correctamente\"\n    }\n }",
                             "name": ""
                         },
@@ -267,7 +267,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"municipalitie_id\":17,\"name\":[\"odit\"]}"
+                            "raw": "{\"municipalitie_id\":13,\"name\":[\"nam\"]}"
                         },
                         "description": "",
                         "auth": {
@@ -298,12 +298,12 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "2",
+                                    "value": "7",
                                     "description": "The number of page.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/neighborhoods?page=2"
+                            "raw": "{{baseUrl}}\/api\/v1\/neighborhoods?page=7"
                         },
                         "method": "GET",
                         "header": [
@@ -326,7 +326,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":null,\"name_neighborhood\":\"South Deanna\"}}",
+                            "body": "{\"data\":{\"id\":\"2\",\"name_neighborhood\":\"Mayertburgh\"}}",
                             "name": ""
                         }
                     ]
@@ -353,7 +353,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"aut\",\"municipalitie_id\":13}"
+                            "raw": "{\"name\":\"est\",\"municipalitie_id\":14}"
                         },
                         "description": "",
                         "auth": {
@@ -403,7 +403,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":[\"laborum\"]}"
+                            "raw": "{\"name\":[\"aperiam\"]}"
                         },
                         "description": "",
                         "auth": {
@@ -489,7 +489,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"occaecati\"}"
+                            "raw": "{\"name\":\"asperiores\"}"
                         },
                         "description": "",
                         "auth": {

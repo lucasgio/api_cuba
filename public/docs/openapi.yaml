@@ -16,12 +16,12 @@ paths:
           in: query
           name: 'filter[provincie.name]'
           description: 'Name of the province to search'
-          example: temporibus
+          example: et
           required: false
           schema:
             type: string
             description: 'Name of the province to search'
-            example: temporibus
+            example: et
         -
           in: header
           name: Content-Type
@@ -56,12 +56,12 @@ paths:
           in: query
           name: 'filter[provincie.name]'
           description: 'Name of the province to search'
-          example: dolores
+          example: deleniti
           required: false
           schema:
             type: string
             description: 'Name of the province to search'
-            example: dolores
+            example: deleniti
         -
           in: header
           name: Content-Type
@@ -96,12 +96,12 @@ paths:
           in: query
           name: page
           description: 'The page number'
-          example: 2
+          example: 1
           required: false
           schema:
             type: integer
             description: 'The page number'
-            example: 2
+            example: 1
         -
           in: header
           name: Content-Type
@@ -125,16 +125,20 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 2
-                    name: Julietville
-                    provincia: null
+                    id: 173
+                    name: Hayleeborough
+                    provincia:
+                      id: '20'
+                      name: Fadelview
                 properties:
                   data:
                     type: object
                     example:
-                      id: 2
-                      name: Julietville
-                      provincia: null
+                      id: 173
+                      name: Hayleeborough
+                      provincia:
+                        id: '20'
+                        name: Fadelview
       tags:
         - Municipality
       security: []
@@ -183,11 +187,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: sequi
+                  example: doloribus
                 provincie_id:
                   type: integer
                   description: ''
-                  example: 10
+                  example: 11
               required:
                 - name
       security: []
@@ -211,7 +215,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        201:
           description: ''
           content:
             text/plain:
@@ -238,13 +242,13 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - fugiat
+                    - quis
                   items:
                     type: string
                 provincie_id:
                   type: integer
                   description: 'ID of province'
-                  example: 8
+                  example: 11
               required:
                 - name
       security: []
@@ -294,12 +298,12 @@ paths:
                 municipalitie_id:
                   type: integer
                   description: 'ID of municipalities'
-                  example: 17
+                  example: 13
                 name:
                   type: array
                   description: ''
                   example:
-                    - odit
+                    - nam
                   items:
                     type: string
               required:
@@ -314,12 +318,12 @@ paths:
           in: query
           name: page
           description: 'The number of page.'
-          example: 2
+          example: 7
           required: false
           schema:
             type: integer
             description: 'The number of page.'
-            example: 2
+            example: 7
         -
           in: header
           name: Content-Type
@@ -343,14 +347,14 @@ paths:
                 type: object
                 example:
                   data:
-                    id: null
-                    name_neighborhood: 'South Deanna'
+                    id: '2'
+                    name_neighborhood: Mayertburgh
                 properties:
                   data:
                     type: object
                     example:
-                      id: null
-                      name_neighborhood: 'South Deanna'
+                      id: '2'
+                      name_neighborhood: Mayertburgh
       tags:
         - Neighborhood
       security: []
@@ -399,11 +403,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: aut
+                  example: est
                 municipalitie_id:
                   type: integer
                   description: ''
-                  example: 13
+                  example: 14
               required:
                 - name
                 - municipalitie_id
@@ -455,7 +459,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - laborum
+                    - aperiam
                   items:
                     type: string
               required:
@@ -587,7 +591,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: occaecati
+                  example: asperiores
               required:
                 - name
       security: []

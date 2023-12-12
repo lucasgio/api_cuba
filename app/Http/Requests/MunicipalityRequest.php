@@ -24,6 +24,7 @@ class MunicipalityRequest extends BaseRequest
     public function rules(): array
     {
         return match ($this->method()) {
+            'GET' => [],
             'POST' => [
                 'name' => 'required|string|unique:municipalities,name',
                 'provincie_id' => 'nullable|int|exists:provincies,id',
