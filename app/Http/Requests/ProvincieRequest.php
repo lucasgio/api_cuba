@@ -6,12 +6,10 @@ use JetBrains\PhpStorm\ArrayShape;
 
 class ProvincieRequest extends BaseRequest
 {
-
     public function authorize(): bool
     {
         return true;
     }
-
 
     public function rules(): array
     {
@@ -29,7 +27,6 @@ class ProvincieRequest extends BaseRequest
             ]
         };
     }
-
 
     public function attributes(): array
     {
