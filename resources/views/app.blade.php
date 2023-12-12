@@ -13,7 +13,7 @@
     @inertiaHead
 </head>
 
-<body class="bg-indigo-500 font-poppins">
+<body class=" max-h-screen bg-indigo-500 font-poppins bg-no-repeat bg-cover" style="background-image: url({{ asset('images/bg.png') }})">
     @inertia
 </body>
 
