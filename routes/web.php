@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return \Inertia\Inertia::render('Home', [
-        'count' => \App\Models\Information::all()->count(),
-        'provinces' => \App\Models\Provincie::all()->count(),
-        'municipalities' => \App\Models\Municipality::all()->count(),
+    return Inertia\Inertia::render('Home', [
+        'count' => App\Models\Information::all()->count(),
+        'provinces' => App\Models\Provincie::all()->count(),
+        'municipalities' => App\Models\Municipality::all()->count(),
     ]);
 });
