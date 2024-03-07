@@ -1,4 +1,4 @@
-name: 🚀 Deploy on push main
+name: 🚀 Deploy and Test on push to main
 
 on:
   push:
@@ -6,11 +6,50 @@ on:
       - main
 
 jobs:
+  tests:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        php: ['8.0', '8.1']
+        laravel: [8.*]
+        stability: [prefer-lowest, prefer-stable]
+        include:
+          - laravel: 8.*
+            testbench: ^6.23
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          tools: composer:v2
+          coverage: none
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install dependencies
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+
+      - name: Execute tests
+        run: vendor/bin/phpunit
+
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     needs: tests
-    if: ${{ needs.test.result == 'success' }}
+    if: ${{ needs.tests.result == 'success' }}
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
@@ -73,6 +112,7 @@ jobs:
             echo "Recreate cache"
             php artisan optimize
             echo "Deployment finished!"
+
       - name: 📧 Send deployment notification email
         if: success()
         uses: dawidd6/action-send-mail@v2
