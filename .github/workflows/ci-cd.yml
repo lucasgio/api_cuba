@@ -69,7 +69,7 @@ jobs:
             echo "Deployment started ..."
 
             # Navigate to the specific folder
-            cd ${{ secrets.SITE_URL }}/
+            cd ${{ secrets.SITEURL }}/
 
             # Check if .git directory exists
             if [ ! -d ".git" ]; then
