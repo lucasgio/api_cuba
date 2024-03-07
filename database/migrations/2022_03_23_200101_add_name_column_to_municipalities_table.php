@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up()
     {
-        if (\Illuminate\Support\Facades\DB::getDriverName() !== 'sqlite') {
+        if (Illuminate\Support\Facades\DB::getDriverName() !== 'sqlite') {
             Schema::table('municipalities', function (Blueprint $table) {
                 $table->string('name')->after('id');
             });

@@ -25,19 +25,19 @@ use Illuminate\Support\Facades\Route;
 **/
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::post('/post-provincies', [\App\Http\Controllers\API\V1\ProvincieController::class, 'storeMassive']);
-    Route::post('/post-municipalities', [\App\Http\Controllers\API\V1\MunicipalityController::class, 'storeMassive']);
-    Route::post('/post-neighborhoods', [\App\Http\Controllers\API\V1\NeighborhoodsController::class, 'storeMassive']);
+    Route::post('/post-provincies', [App\Http\Controllers\API\V1\ProvincieController::class, 'storeMassive']);
+    Route::post('/post-municipalities', [App\Http\Controllers\API\V1\MunicipalityController::class, 'storeMassive']);
+    Route::post('/post-neighborhoods', [App\Http\Controllers\API\V1\NeighborhoodsController::class, 'storeMassive']);
 
     Route::apiResources([
-        'provincies' => \App\Http\Controllers\API\V1\ProvincieController::class,
-        'municipalities' => \App\Http\Controllers\API\V1\MunicipalityController::class,
-        'neighborhoods' => \App\Http\Controllers\API\V1\NeighborhoodsController::class,
+        'provincies' => App\Http\Controllers\API\V1\ProvincieController::class,
+        'municipalities' => App\Http\Controllers\API\V1\MunicipalityController::class,
+        'neighborhoods' => App\Http\Controllers\API\V1\NeighborhoodsController::class,
     ]);
 
     // Query
     Route::group(['prefix' => 'search'], function () {
-        Route::get('/municipalities-by-provinces', [\App\Http\Controllers\API\V1\SearchController::class, 'getMunicipalitiesByProvinces']);
-        Route::get('/neighborhoods-by-municipality', [\App\Http\Controllers\API\V1\SearchController::class, 'getNeighborhoodByMunicipality']);
+        Route::get('/municipalities-by-provinces', [App\Http\Controllers\API\V1\SearchController::class, 'getMunicipalitiesByProvinces']);
+        Route::get('/neighborhoods-by-municipality', [App\Http\Controllers\API\V1\SearchController::class, 'getNeighborhoodByMunicipality']);
     });
 });
