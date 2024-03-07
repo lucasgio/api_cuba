@@ -1,0 +1,87 @@
+name: 🚀 Deploy on push main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    needs: tests
+    if: ${{ needs.test.result == 'success' }}
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 📂 Deploy to server via ssh
+        id: deploy-script
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            #!/bin/bash
+            set -e
+
+            echo "Deployment started ..."
+
+            # Navigate to the specific folder
+            cd ${{ secrets.SITE_URL }}/
+
+            # Check if .git directory exists
+            if [ ! -d ".git" ]; then
+            echo "Git repository not found. Initialising and pulling from production..."
+
+            # Initialise the repo
+            git init
+            git remote add production https://x-access-token:${{ secrets.TOKEN }}@${{ secrets.PROJECT_GITHUB }}
+            git pull production master
+            else
+            echo "Git repository found. Pulling latest changes from production..."
+
+            # Pull the latest changes
+            git pull production master
+
+            fi
+            # Copy .env if not exists
+            php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+            # Backup .env
+            cp .env .env.backup
+
+            # Change APP_ENV to development in .env
+            sed -i 's/APP_ENV=production/APP_ENV=development/g' .env
+            echo "Install composer dependencies"
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+            echo "Clear the old cache"
+            php artisan clear-compiled
+
+            echo "Recreate cache"
+            php artisan optimize
+
+            echo "Run database migrations"
+            php artisan migrate --no-interaction
+
+             # Change APP_ENV to production in .env
+            sed -i 's/APP_ENV=development/APP_ENV=production/g' .env
+
+            echo "Recreate cache"
+            php artisan optimize
+            echo "Deployment finished!"
+      - name: 📧 Send deployment notification email
+        if: success()
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: ${{ secrets.EMAIL_HOST }}
+          server_port: ${{ secrets.EMAIL_PORT }}
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Deployment Succeeded
+          body: The deployment of your api_cuba has been successful.
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
