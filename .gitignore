@@ -17,3 +17,11 @@ yarn-error.log
 /.idea
 /.vscode
 *.code-workspace
+.scribe
+/composer.phar
+/.scannerwork/.sonar_lock
+/public/docs/collection.json
+/docker-compose.yml
+/qodana.yaml
+/.scannerwork/report-task.txt
+/sonar-project.properties
