@@ -25,7 +25,7 @@ class ProvinciesActions extends ApiController
             }
             DB::commit();
             DB::rollback();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             abort(422, 'Entrada duplicada');
         }
 
