@@ -1,27 +1,29 @@
 <template>
-    <section class="text-white">
-        <div class="container h-96 mx-auto flex px-5 py-24 md:flex-row flex-col items-center opacity-75 mb-10">
-            <div
-                class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <h1 class="title-font lg:text-6xl mb-4 font-extrabold">API CUBA
-                </h1>
-                <p class="mb-8 font-medium leading-relaxed">
-                    Proyecto de código abierto desarrollado en Laravel para apoyar a los desarrolladores en Cuba.</p>
 
-            </div>
-            <div
-                class="lg:max-w-lg skew-y-6 lg:w-full md:w-1/2 w-5/6"
-            >
-                <img class="object-cover object-center" alt="hero"
-                     :src="require('../assets/hero-img.png').default">
-            </div>
-        </div>
+    <section
+        class="w-full py-32 md:py-64 lg:py-96 flex flex-col items-center justify-center text-center bg-gradient-to-r from-gray-800 via-black to-gray-800"
+        id="eyebwr0sgef">
+        <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white">
+            API CUBA
+        </h1>
+        <p class="mt-4 max-w-2xl text-lg md:text-2xl lg:text-3xl text-gray-300">
+            Información de Cuba mas fácil y a mano.
+        </p>
+        <a  :href="link"
+            class="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition duration-300">Documentación</a>
     </section>
+
 </template>
 
 <script>
 export default {
     name: "Hero",
+    props: {
+        link: {
+            type: String,
+            required: true
+        }
+    },
 }
 </script>
 

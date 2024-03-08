@@ -18,5 +18,6 @@ Route::get('/', function () {
         'count' => App\Models\Information::all()->count(),
         'provinces' => App\Models\Provincie::all()->count(),
         'municipalities' => App\Models\Municipality::all()->count(),
+        'link' => config('app.url').'/docs'
     ]);
 });

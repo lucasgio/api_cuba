@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Hero/>
-        <Stats :information="{count,provinces,municipalities}"/>
+        <Hero :link="link"/>
+<!--        <Stats :information="{count,provinces,municipalities}"/>-->
     </div>
 </template>
 
@@ -15,9 +15,9 @@ export default {
     props:{
         count:Number,
         provinces:Number,
-        municipalities:Number
-    }
-
+        municipalities:Number,
+        link:String
+    },
 }
 </script>
 
