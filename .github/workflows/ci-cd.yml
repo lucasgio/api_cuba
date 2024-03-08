@@ -77,7 +77,7 @@ jobs:
 
             # Initialise the repo
             git init
-            git remote add production https://x-access-token:${{ secrets.TOKEN }}@${{ secrets.PROJECT_GITHUB }}
+            git remote add production
             git pull production master
             else
             echo "Git repository found. Pulling latest changes from production..."
