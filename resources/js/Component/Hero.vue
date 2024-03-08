@@ -3,6 +3,7 @@
     <section
         class="w-full py-32 md:py-64 lg:py-96 flex flex-col items-center justify-center text-center bg-gradient-to-r from-gray-800 via-black to-gray-800"
         id="eyebwr0sgef">
+        <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://res.cloudinary.com/dujvwu2jm/image/upload/r_23/v1709917511/carbon_bnwxnk.webp">
         <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white">
             API CUBA
         </h1>
