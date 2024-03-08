@@ -14,11 +14,11 @@ return new class extends Migration {
     {
         if (Illuminate\Support\Facades\DB::getDriverName() !== 'sqlite') {
             Schema::table('municipalities', function (Blueprint $table) {
-                $table->string('name')->after('id');
+                $table->string('name');
             });
         } else {
             Schema::table('municipalities', function (Blueprint $table) {
-                $table->string('name')->after('id')->default('');
+                $table->string('name')->default('');
             });
         }
     }

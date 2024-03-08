@@ -10,6 +10,7 @@ use JetBrains\PhpStorm\ArrayShape;
 /**
  * @property mixed $name
  * @property mixed $id
+ * @property mixed $provincie
  */
 class MunicipalitiesResource extends JsonResource
 {
